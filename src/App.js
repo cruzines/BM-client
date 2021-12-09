@@ -1,33 +1,40 @@
+import './App.css';
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
 import axios from "axios";
 import { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import ModalDialog from "./components/ModalDialog";
+import SignUpDialog from "./components/SignUpDialog";
+import SignInDialog from './components/SignInDialog';
 
 
 function App() {
-
+//SIGNUP
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => {
     setOpen(true);
   };
-
-  const handleClose = () => {
+   const handleClose = () => {
     setOpen(false);
+  };
+//SIGNIN
+  const [openSI, setOpenSI] = useState(false);
+  const handleOpenSI = () => {
+    setOpenSI(true);
+  };
+  const handleCloseSI = () => {
+    setOpenSI(false);
   };
 
   return (
     <div>
       <div className="Auth">
-      <Button variant="contained" color="primary" onClick={handleOpen}>Signup</Button>
-      <ModalDialog open={open} handleClose={handleClose} />
+      <Button variant="contained" color="primary" onClick={handleOpenSI}>Sign in</Button>
+      <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} />
+      <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button>
+      <SignUpDialog open={open} handleClose={handleClose} />
       </div>
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
-    <h1>hello people :)</h1>
       <Routes>
    
       </Routes>
