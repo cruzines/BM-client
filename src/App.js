@@ -7,6 +7,9 @@ import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ModalDialog from "./components/ModalDialog";
 import ResponsiveAppBar from './components/ResponsiveAppBar'
+import PageNotFound from './components/404notFound'
+import Landing from "./components/Landing";
+
 
 function App() {
 
@@ -28,8 +31,17 @@ function App() {
       <ModalDialog open={open} handleClose={handleClose} />
       </div>
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
-    <h1>hello people :)</h1>
       <Routes>
+      {/* <Route  path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
+      <Route  path="/signup" element={<SignUp />}/> */}
+      <Route path='*' element={<PageNotFound />} />
+      <Route path='/' element={<Landing />} />
+      <Route path='/signIn' element={<SignIn />} />
+      <Route path='/signUp' element={<SignUp />} />
+
+
+
+
    
       </Routes>
     </div>
