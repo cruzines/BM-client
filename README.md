@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# BID MASTERS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made by Ines Cruz, Ricardo Nunes and Maria Farran Colell 
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Bid Masters is a platform used by Art Galleries to sell their art. There are constant auctions and the sellers can see a description and picture of the painting whilst betting on it. Artists can also use the site to directly sell their art without the need of a third party. 
 
-### `yarn start`
+### USER STORIES
+### - Landing Page
+The first thing seen by the user. Moving images and information about the current auctions. 
+### - Payment 
+The user can buy the artworks inputting their credit card number. 
+### - Signup 
+The user needs to sign up to buy the artwork. 
+### - Preferred Access 
+The user is a seller and needs preferred access. 
+### - User information
+Details about the user: surname, name, shipping address, billing address, what was last sold/bought, fiscal number.  
+### - Logout
+The user can log out. 
+### - Edit/Delete the user information
+The user can edit all the information given or delete his account. 
+### - Auction Page
+Page showing all the ongoing auctions
+### - Future auctions
+Page showing the detail of future auctions
+### - 404 page
+Showing the problem 
+### - 500 page
+Showing the problem
+### - Countdown 
+Countdown showing how long there is left on the auction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Backlog:
+### User Search 
+The user will be able to search through our database information about the artworks. 
+### Manish as an artist
+Manish will be a featured artist and we'll display and sell some of his paintings.
+### Maps
+A map will show the precedence of the artwork.
+### Chat
+A chat will be implemented allowing the users to contact the auction houses.
+### Calendar
+The calendar will show all future auctions. 
+### Private Sales
+The individual sells the art. 
+### Currency conversions
+The price is shown in different currencies, including cryotocurrency. 
+### Adding pieces
+The users can add some of the artworks they own to sell them. 
+### Artist
+A different type of user that can upload images of his artwork to sell. 
+### Adding sound
+Adding a pleasant sound in the Landing page.
 
-### `yarn test`
+### CLIENT/FRONTEND
+### Routes
+### Components
+### Services
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### SERVER/BACKEND
+### Models
+### API Endpoints / Backend Routes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### LINKS
+### Wireframes
+### Kanban in Notion
+### Git
+### Slides
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

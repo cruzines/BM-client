@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.Auth {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
