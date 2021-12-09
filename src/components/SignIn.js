@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { makeStyles, TextField, Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,14 +25,13 @@ const SignIn = ({ handleCloseSI }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = e => {
+  const handleSignIn = e => {
     e.preventDefault();
-    console.log(email, password);
     handleCloseSI();
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
+    <form className={classes.root} onSubmit={handleSignIn}>
       <TextField
         label="Email"
         variant="filled"

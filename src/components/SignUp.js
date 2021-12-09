@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { makeStyles, TextField, Button } from '@material-ui/core';
+import axios from 'axios';
+import { API_URL } from '../config';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,19 +29,31 @@ const SignUp = ({ handleClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = e => {
+  const handleSignUp = async (e) => {
+    console.log(firstName, lastName, email, password)
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
+    
+    let newUser = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      email: e.target.email.value,
+      password: e.target.password.value
+    }
+
+    await axios.post(`${API_URL}/signup`, newUser)
+    
+
     handleClose();
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
+    <form className={classes.root} onSubmit={handleSignUp}>
       <TextField
         label="First Name"
         variant="filled"
         required
         value={firstName}
+        name="firstName"
         onChange={e => setFirstName(e.target.value)}
       />
       <TextField
@@ -49,6 +61,7 @@ const SignUp = ({ handleClose }) => {
         variant="filled"
         required
         value={lastName}
+        name="lastName"
         onChange={e => setLastName(e.target.value)}
       />
       <TextField
@@ -57,6 +70,7 @@ const SignUp = ({ handleClose }) => {
         type="email"
         required
         value={email}
+        name="email"
         onChange={e => setEmail(e.target.value)}
       />
       <TextField
@@ -65,6 +79,7 @@ const SignUp = ({ handleClose }) => {
         type="password"
         required
         value={password}
+        name="password"
         onChange={e => setPassword(e.target.value)}
       />
       <div>

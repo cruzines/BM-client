@@ -6,9 +6,12 @@ import { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import SignUpDialog from "./components/SignUpDialog";
 import SignInDialog from './components/SignInDialog';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 
 function App() {
+
 //SIGNUP
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -36,7 +39,8 @@ function App() {
       </div>
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
       <Routes>
-   
+        <Route  path="/signin" element={<SignIn />}/>
+        <Route  path="/signup" element={<SignUp />}/>
       </Routes>
     </div>
   );
