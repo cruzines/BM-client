@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Button from '@material-ui/core/Button';
 import SignUpDialog from "./components/SignUpDialog";
 import SignInDialog from './components/SignInDialog';
@@ -12,14 +12,16 @@ import ArtListing from "./components/ArtListing";
 import {API_URL} from './config'
 import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
-import ResponsiveAppBar from './components/ResponsiveAppBar'
+import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Landing from "./components/Landing";
+import {UserContext} from './context/app.context';
 
 //SIGNUP
 function App() {
 
   const [user, setUser] = useState (null);
+ /*  const {user, setUser} = useContext(UserContext) */
   const [myError, setError] = useState(null);
   /* const [fetchingUser, setFetchingUser] = useState(true) */
 
@@ -90,7 +92,7 @@ const handleSubmit = async (event) => {
 } */
   return (
     <div>
-      <ResponsiveAppBar/>
+      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI}/>
       <div className="Auth">
       <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button>
       <SignUpDialog open={open} handleClose={handleClose} />
