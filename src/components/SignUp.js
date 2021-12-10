@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles, TextField, Button } from '@material-ui/core';
 import axios from 'axios';
 import { API_URL } from '../config';
+import SignInDialog from './SignInDialog';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,15 +23,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignUp = ({ handleClose }) => {
+  
   const classes = useStyles();
-  // create state variables for each input
+  
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignUp = async (e) => {
-    console.log(firstName, lastName, email, password)
+    //console.log(firstName, lastName, email, password)
     e.preventDefault();
     
     let newUser = {
@@ -40,10 +42,9 @@ const SignUp = ({ handleClose }) => {
       password: e.target.password.value
     }
 
-    await axios.post(`${API_URL}/signup`, newUser)
-    
-
+    await axios.post(`${API_URL}/signup`, newUser, {withCredentials: true})
     handleClose();
+    //SignInDialog(); NOT WORKING :(
   };
 
   return (

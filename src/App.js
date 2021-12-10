@@ -12,6 +12,9 @@ import ArtListing from "./components/ArtListing";
 import {API_URL} from './config'
 import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
+import ResponsiveAppBar from './components/ResponsiveAppBar'
+import PageNotFound from './components/404notFound'
+import Landing from "./components/Landing";
 
 //SIGNUP
 function App() {
@@ -35,6 +38,7 @@ function App() {
     setOpenSI(false);
   };
 
+  //ART
   useEffect(() => {
 
     const getData = async () => {
@@ -62,11 +66,12 @@ const handleSubmit = async (event) => {
 
   return (
     <div>
+      <ResponsiveAppBar/>
       <div className="Auth">
-      <Button variant="contained" color="primary" onClick={handleOpenSI}>Sign in</Button>
-      <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} />
       <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button>
       <SignUpDialog open={open} handleClose={handleClose} />
+      <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button>
+      <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} />
       </div>
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
       <Routes>
@@ -75,9 +80,15 @@ const handleSubmit = async (event) => {
         <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}/>}   />
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
+        <Route path='*' element={<PageNotFound />} />
+        <Route path='/' element={<Landing />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+
+
+
