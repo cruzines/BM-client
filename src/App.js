@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from 'react';
@@ -15,9 +15,19 @@ import AddArt from "./components/AddArt";
 import ResponsiveAppBar from './components/ResponsiveAppBar'
 import PageNotFound from './components/404notFound'
 import Landing from "./components/Landing";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Footer from './components/Footer';
+import CarouselFront from './components/Carousel';
+import 'bootstrap'
+
+
 
 //SIGNUP
 function App() {
+
+  
 
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
@@ -50,12 +60,19 @@ function App() {
 
 const handleSubmit = async (event) => {
   event.preventDefault()
-  console.log(event.target.year.value)
+  //console.log(event.target.price.value)
+
+  console.log(event.target.myImage.files[0])
+	let formData = new FormData()
+	formData.append('imageUrl', event.target.myImage.files[0])
+	
+	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
+
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
     year: event.target.year.value,
-    image: event.target.image.value,
+    image: imgResponse.data.image,
     price: event.target.price.value
     
   }
@@ -67,12 +84,15 @@ const handleSubmit = async (event) => {
   return (
     <div>
       <ResponsiveAppBar/>
+   <CarouselFront />
+      {/*
       <div className="Auth">
       <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button>
       <SignUpDialog open={open} handleClose={handleClose} />
       <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button>
       <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} />
-      </div>
+     
+      </div> */}
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
       <Routes>
         <Route path="/signin" element={<SignIn />}/>
@@ -83,6 +103,7 @@ const handleSubmit = async (event) => {
         <Route path='*' element={<PageNotFound />} />
         <Route path='/' element={<Landing />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
