@@ -47,11 +47,11 @@ const SignIn = (props) => {
         onChange={e => setPassword(e.target.value)}
       />
       <div>
-        <Button variant="contained" onClick={handleCloseSI}>
-          Cancel
+      <Button type="submit" variant="contained" color="primary" onClick={handleCloseSI}>
+          Log in
         </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Sign in
+        <Button variant="contained" color="secondary" onClick={handleCloseSI}>
+          Cancel
         </Button>
       </div>
     </form>
