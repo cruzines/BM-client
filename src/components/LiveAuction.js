@@ -1,32 +1,70 @@
-import React from "react";
+import React from 'react'
 
-export default function LiveAuction() {
-  const [timer, setTimer] = React.useState(100);
-  const id =React.useRef(null);
-  const clear=()=>{
-  window.clearInterval(id.current)
-}
-  React.useEffect(()=>{
-     id.current=window.setInterval(()=>{
-      setTimer((time)=>time-1)
-    },1000)
-    return ()=>clear();
-  },[])
+function LiveAuction() {
 
-  React.useEffect(()=>{
-    if(timer===0){
-      clear()
+    const [counter, setCounter] = React.useState(60);
+    React.useEffect(() => {
+        const timer =
+          counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+        return () => clearInterval(timer);
+      }, [counter]);
+    
+      return (
+        <div className="App">
+          <div>Countdown: {counter}</div>
+        </div>
+      );
     }
 
-  },[timer])
+export default LiveAuction
 
 
-  return (
-    <div className="LiveAuction">
-
-     <div>Time left : {timer} </div>
-
-    </div>
-  );
-}
-
+// function LiveAuction() {
+//     const year = new Date().getFullYear();
+//     const difference = +new Date(`${year}-10-1`) - +new Date();
+//     let timeLeft = {};
+  
+//     if (difference > 0) {
+//       timeLeft = {
+//         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+//         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+//         minutes: Math.floor((difference / 1000 / 60) % 60),
+//         seconds: Math.floor((difference / 1000) % 60)
+//       };
+//     }
+  
+//     return timeLeft;
+//   }
+  
+//   export default function LiveAuction() {
+//     const [timeLeft, setTimeLeft] = React.useState(LiveAuction());
+  
+//     React.useEffect(() => {
+//       const id = setTimeout(() => {
+//         setTimeLeft(LiveAuction());
+//       }, 1000);
+  
+//       return () => {
+//         clearTimeout(id);
+//       };
+//     });
+  
+//     const timerComponents = Object.keys(timeLeft).map(interval => {
+//       if (!timeLeft[interval]) {
+//         return;
+//       }
+  
+//       return (
+//          <span>
+//           {timeLeft[interval]} {interval}{" "}
+//         </span>
+//       )
+//     });
+  
+//     return (
+//       <div>
+//         {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+//       </div>
+//     );
+//   }
+  
