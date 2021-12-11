@@ -63,7 +63,7 @@ export default LiveAuction
   
 //     return (
 //       <div>
-//         {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+//         {timerComponents.length ? timerComponents : <span>Time's up! No more bidding is allowedd</span>}
 //       </div>
 //     );
 //   }
