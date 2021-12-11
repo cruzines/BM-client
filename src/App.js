@@ -15,6 +15,7 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Landing from "./components/Landing";
+import LiveAuction from './components/LiveAuction'
 
 //SIGNUP
 function App() {
@@ -107,6 +108,8 @@ const handleSubmit = async (event) => {
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
         <Route path='/' element={<Landing />} />
+        <Route path='/live' element={<LiveAuction />} />
+
       </Routes>
     </div>
   );
