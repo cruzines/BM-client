@@ -86,12 +86,20 @@ const handleSubmit = async (event) => {
   let response = await axios.post(`${API_URL}/sellform`, newArt)
   setArt([response.data, ...art])
 }
+
+//LOGOUT
+const handleLogout = async () => {
+  await axios.post(`${API_URL}/logout`, {}, {withCredentials: true})
+  setUser(null)
+}
+
 /* if (fetchingUser) {
   return <p>Loading user info. . . </p>
 } */
+
   return (
     <div>
-      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
+      <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
       
       {/* <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button> */}
       <SignUpDialog open={open} handleClose={handleClose} />

@@ -26,8 +26,16 @@ function ButtonAppBar(props) {
             <Avatar alt="logo" src="/logo2.png"/>
           </Typography>
           <Button color="inherit">Auctions</Button>
+          {
+            props.user ? (
+              <Button onClick={props.onLogout} color="inherit">Logout</Button>
+            ) : (
+          <>
           <Button onClick={props.openSI} color="inherit">Log in</Button>
           <Button onClick={props.open} color="inherit">Sign up</Button>
+          </>
+            )
+          }
         </Toolbar>
       </AppBar>
     </Box>
