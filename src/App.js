@@ -2,7 +2,7 @@ import './App.css';
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import SignUpDialog from "./components/SignUpDialog";
 import SignInDialog from './components/SignInDialog';
@@ -15,13 +15,12 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Landing from "./components/Landing";
-import {UserContext} from './context/app.context';
 
 //SIGNUP
 function App() {
 
   const [user, setUser] = useState (null);
- /*  const {user, setUser} = useContext(UserContext) */
+
   const [myError, setError] = useState(null);
   /* const [fetchingUser, setFetchingUser] = useState(true) */
 
@@ -92,13 +91,13 @@ const handleSubmit = async (event) => {
 } */
   return (
     <div>
-      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI}/>
-      <div className="Auth">
-      <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button>
+      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
+      
+      {/* <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button> */}
       <SignUpDialog open={open} handleClose={handleClose} />
-      <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button>
+     {/*  <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button> */}
       <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
-      </div>
+     
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
       <Routes>
         <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>

@@ -5,15 +5,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-//import {useContext} from 'react';
-//import {UserContext} from '../context/app.context'
-//import { Link } from 'react-router-dom'
+import Avatar from '@mui/material/Avatar';
 
 function ButtonAppBar(props) {
 
-  /* const {user} = useContext(UserContext) */
-  console.log(props)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,12 +20,14 @@ function ButtonAppBar(props) {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            LOGO
+            <Avatar alt="logo" src="/logo2.png"/>
           </Typography>
-          <Button onClick={props.openSI} color="secondary">Login</Button>
+          <Button color="inherit">Auctions</Button>
+          <Button onClick={props.openSI} color="inherit">Log in</Button>
+          <Button onClick={props.open} color="inherit">Sign up</Button>
         </Toolbar>
       </AppBar>
     </Box>
