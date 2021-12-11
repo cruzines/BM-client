@@ -12,7 +12,10 @@ import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
-import Landing from "./components/Landing";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import CssBaseline from '@mui/material/CssBaseline';
+import Footer from './components/Footer';
+import CarouselFront from './components/Carousel';
 import './App.css';
 
 //SIGNUP
@@ -72,12 +75,19 @@ function App() {
 
 const handleSubmit = async (event) => {
   event.preventDefault()
-  console.log(event.target.year.value)
+  //console.log(event.target.price.value)
+
+  console.log(event.target.myImage.files[0])
+	let formData = new FormData()
+	formData.append('imageUrl', event.target.myImage.files[0])
+	
+	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
+
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
     year: event.target.year.value,
-    image: event.target.image.value,
+    image: imgResponse.data.image,
     price: event.target.price.value
     
   }
@@ -91,16 +101,17 @@ const handleLogout = async () => {
   await axios.post(`${API_URL}/logout`, {}, {withCredentials: true})
   setUser(null)
 }
-
+/* 
 if (fetchingUser) {
   return <p>Loading user info. . . </p>
-}
+} */
 
   return (
     <div>
       <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
       <SignUpDialog open={open} handleClose={handleClose} />
       <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
+      <CarouselFront />
 
       <Routes>
         <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
@@ -109,8 +120,8 @@ if (fetchingUser) {
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
-        <Route path='/' element={<Landing />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

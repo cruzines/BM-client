@@ -1,0 +1,32 @@
+@import '~antd/dist/antd.css';
+
+.carousel {
+    width: 100%; 
+    margin-top: 50px;
+    max-width: 100%;
+    
+}
+
+.imageDiv {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.image{
+    margin: 0 auto; 
+    width: 100vw;
+    object-fit: none;
+   
+}
+
+.text {
+    position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h4 {
+    color: white;
+}
