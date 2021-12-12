@@ -1,0 +1,16 @@
+.containerX{
+    max-width: 1000px;
+    margin: auto;
+}
+.colX{
+    width: 90%;
+    margin-bottom: 100px;
+}
+.images{
+    height: 100%;
+    min-width: 200px;
+    margin: 10px;
+    overflow: hidden;
+   
+}
+

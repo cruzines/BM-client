@@ -1,9 +1,7 @@
-import './App.css';
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 import SignUpDialog from "./components/SignUpDialog";
 import SignInDialog from './components/SignInDialog';
 import SignUp from './components/SignUp';
@@ -23,7 +21,7 @@ function App() {
   const [user, setUser] = useState (null);
 
   const [myError, setError] = useState(null);
-  /* const [fetchingUser, setFetchingUser] = useState(true) */
+  const [fetchingUser, setFetchingUser] = useState(true)
 
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
@@ -55,11 +53,11 @@ function App() {
         console.log (e.target)
         let response = await axios.post(`${API_URL}/signin`, newUser, {withCredentials: true})
         setUser(response.data)
-        /* handleCloseSI(); */
+      
       }
     catch(err){
-      console.log(err)
-      //setError(err.response.data)
+      //console.log(err)
+      setError(err.response.data)
     }
   }
   //ART
@@ -74,12 +72,19 @@ function App() {
 
 const handleSubmit = async (event) => {
   event.preventDefault()
-  console.log(event.target.year.value)
+  //console.log(event.target.price.value)
+
+  console.log(event.target.myImage.files[0])
+	let formData = new FormData()
+	formData.append('imageUrl', event.target.myImage.files[0])
+	
+	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
+
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
     year: event.target.year.value,
-    image: event.target.image.value,
+    image: imgResponse.data.image,
     price: event.target.price.value
     
   }
@@ -87,19 +92,24 @@ const handleSubmit = async (event) => {
   let response = await axios.post(`${API_URL}/sellform`, newArt)
   setArt([response.data, ...art])
 }
-/* if (fetchingUser) {
+
+//LOGOUT
+const handleLogout = async () => {
+  await axios.post(`${API_URL}/logout`, {}, {withCredentials: true})
+  setUser(null)
+}
+/* 
+if (fetchingUser) {
   return <p>Loading user info. . . </p>
 } */
+
   return (
     <div>
-      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
-      
-      {/* <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button> */}
+      <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
       <SignUpDialog open={open} handleClose={handleClose} />
-     {/*  <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button> */}
       <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
-     
-    {/*  <MyNav onLogout={handleLogout} user={user} /> */}
+      <CarouselFront />
+
       <Routes>
         <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
         <Route path="/signup" element={<SignUp />}/>
@@ -111,6 +121,7 @@ const handleSubmit = async (event) => {
         <Route path='/live' element={<LiveAuction />} />
 
       </Routes>
+      <Footer />
     </div>
   );
 }

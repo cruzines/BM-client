@@ -6,6 +6,9 @@ import {API_URL} from '../config';
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { Card } from 'antd';
+
+const { Meta } = Card;
 
 function ArtDetail(props) {
 
@@ -30,11 +33,18 @@ function ArtDetail(props) {
     return (
         <div>
             <h2>Piece detail:</h2>
-            <img src={artDetail.image} alt="art"/>
-            <h4>Title: {artDetail.title}</h4>
-            <h4>Artist name: {artDetail.artist}</h4>
-            <h4>Year: {artDetail.year}</h4>
-            <h4>Price: {artDetail.price}</h4>
+    <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="art" src={artDetail.image} />}
+  >
+    <Meta title={artDetail.title}  />
+    <br/>
+    <p>Artist name: {artDetail.artist}</p>
+    <p>Year: {artDetail.year}</p>
+    <p>Price: {artDetail.price}</p>
+
+  </Card>,
 
         </div>
     )
