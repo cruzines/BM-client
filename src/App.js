@@ -24,11 +24,7 @@ function App() {
   const [user, setUser] = useState (null);
 
   const [myError, setError] = useState(null);
-<<<<<<< HEAD
-  /* const [fetchingUser, setFetchingUser] = useState(true) */
-=======
   const [fetchingUser, setFetchingUser] = useState(true)
->>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
 
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
@@ -112,23 +108,11 @@ if (fetchingUser) {
 
   return (
     <div>
-<<<<<<< HEAD
-      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
-      
-      {/* <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button> */}
-=======
       <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
->>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
       <SignUpDialog open={open} handleClose={handleClose} />
       <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
-<<<<<<< HEAD
-     
-    {/*  <MyNav onLogout={handleLogout} user={user} /> */}
-    <CarouselFront />
-=======
       <CarouselFront />
 
->>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
       <Routes>
         <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
         <Route path="/signup" element={<SignUp />}/>
@@ -136,10 +120,6 @@ if (fetchingUser) {
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
-<<<<<<< HEAD
-        
-=======
->>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
       </Routes>
       <Footer />
     </div>

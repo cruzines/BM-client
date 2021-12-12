@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import {useParams, Link, Navigate} from 'react-router-dom';
-import {Spinner} from 'react-bootstrap';
 import axios from 'axios';
 import {API_URL} from '../config';
 import * as React from 'react';
@@ -67,8 +66,8 @@ function ArtDetail(props) {
     <p>Starting bid: €{artDetail.price}</p>
 
   </Card>
- 
-  <h4>Make your offer:</h4>
+ <br/>
+  <h4 className="color">Make your offer:</h4>
   <div className="bid">
   
   <br/>
