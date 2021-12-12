@@ -1,16 +1,15 @@
 .containerX{
-    max-width: 1000px;
-    margin: auto;
-}
-.colX{
-    width: 90%;
-    margin-bottom: 100px;
-}
-.images{
-    height: 100%;
-    min-width: 200px;
-    margin: 10px;
-    overflow: hidden;
-   
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+margin:75px 55px 75px 55px;
+
 }
 
+.cover{
+    height: 900px;
+    margin:5px;
+}
