@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles, TextField, Button } from '@material-ui/core';
+import '../App.css';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,11 +48,11 @@ const SignIn = (props) => {
         onChange={e => setPassword(e.target.value)}
       />
       <div>
+      <Button type="submit" variant="contained" onClick={handleCloseSI} style={{backgroundColor:"#04435d", color:"white"}}>
+          Log in
+        </Button>
         <Button variant="contained" onClick={handleCloseSI}>
           Cancel
-        </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Sign in
         </Button>
       </div>
     </form>

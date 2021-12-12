@@ -21,19 +21,19 @@ function AddArt(props){
      
 		<form onSubmit={btnSubmit}>
       <div>
-			<input class="textFields" name="artist"  type="text"  placeholder="Author"/>
+			<input id="inputID" class="textFields" name="artist"  type="text"  placeholder=" Author"/>
       </div>
       <div>
-			<input class="textFields" name="title"  type="text"  placeholder="Title of artwork"/>
+			<input id="inputID" class="textFields" name="title"  type="text"  placeholder=" Title of artwork"/>
       </div>
       <div>
-      <input class="textFields" name="year"  type="text"  placeholder="Dated from"/>
+      <input id="inputID" class="textFields" name="year"  type="text"  placeholder=" Dated from"/>
       </div>
       <div>
-      <input class="textFields" name="price"  type="text"  placeholder="Price wanted"/>
+      <input id="inputID" class="textFields" name="price"  type="text"  placeholder=" Price wanted"/>
       </div>
       <div className="upload-btn-wrapper">
-      <button class="btn"><img src={imageDowload} alt="upload" />Upload Photo</button>
+      <button class="btn"><img src={imageDowload} alt="upload"/> Upload Photo</button>
 
       <input class="btn" name="myImage"  type="file" accept="image/png, image/jpg"  placeholder="Photo here"/> 
 		
@@ -42,7 +42,7 @@ function AddArt(props){
 
       
       <div>
-			<button class="button" type="submit"  >Submit</button>
+			<button class="button" type="submit" style={{fontSize:'20px'}} >Submit</button>
       </div>
 		</form>
 			

@@ -1,6 +1,5 @@
 import React from 'react';
-import '../Footer.css';
-import logoFooter from '../images/logo2.png'
+import logoFooter from '../images/logoFooter.png'
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
@@ -31,6 +30,8 @@ import { useMagCategoryMenuStyles } from '@mui-treasury/styles/categoryMenu/mag'
 import { usePoofSocialLinkStyles } from '@mui-treasury/styles/socialLink/poof';
 import { useReadyEmailSubscribeStyles } from '@mui-treasury/styles/emailSubscribe/ready';
 import { usePlainNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/plain';
+import '../Footer.css';
+
 const darkTheme = createMuiTheme({ palette: { type: 'dark' } });
 const useStyles = makeStyles(({ palette, typography }) => ({
   top: {
@@ -122,7 +123,7 @@ const Footer = React.memo(function ArcAppFooter() {
                   inputClearedAfterSubmit
                 >
                   <EmailTextInput class="white" placeholder="Enter your email" />
-                  <SubmitButton>Submit</SubmitButton>
+                  <SubmitButton style={{fontSize:'15px'}}>Submit</SubmitButton>
                 </EmailSubscribe>
               </Item>
             </ColumnToRow>

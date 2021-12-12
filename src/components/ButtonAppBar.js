@@ -6,13 +6,16 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
+import '../App.css';
 
 function ButtonAppBar(props) {
+
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="myNav">
           <IconButton
             size="large"
             edge="start"
@@ -20,14 +23,24 @@ function ButtonAppBar(props) {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Avatar alt="logo" src="/logo2.png"/>
+           <img alt="logo" src="/logo2.jpg"/>
           </Typography>
           <Button color="inherit">Auctions</Button>
-          <Button onClick={props.openSI} color="inherit">Log in</Button>
+          {
+            props.user ? (
+              <>
+              <Button href="/profile" color="inherit">Profile</Button>
+              <Button onClick={props.onLogout} color="inherit">Logout</Button>
+              </>        
+            ) : (
+          <>
+          <Button className="myBtn" onClick={props.openSI} color="inherit">Log in</Button>
           <Button onClick={props.open} color="inherit">Sign up</Button>
+          </>
+            )
+          }
         </Toolbar>
       </AppBar>
     </Box>

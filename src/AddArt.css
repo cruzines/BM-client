@@ -20,8 +20,12 @@
   align-items: center;
   margin: 20px auto;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 10px;
   color: black;
+}
+
+#inputID::placeholder {
+ color:#aaacad;
 }
 
 .imageBox {
@@ -32,7 +36,7 @@
     height: 55px; 
     width: 248px;
     border-radius: 15px;
-    background-color: #084D6E;
+    background-color: #04435d;
     color: white;
     margin:15px  auto;
     width: 100%;
@@ -54,9 +58,9 @@
         border: 1px solid black;
             color: #FFFFFF;
             padding: 10px 49px;
-            border-radius: 5px;
+            border-radius: 15px;
             font-size: 20px;
-            background-color: gray;
+            background-color: #658d9e;
         }
         
         .upload-btn-wrapper input[type=file] {

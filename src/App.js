@@ -1,9 +1,7 @@
-import './App.css';
-import * as React from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 import SignUpDialog from "./components/SignUpDialog";
 import SignInDialog from './components/SignInDialog';
 import SignUp from './components/SignUp';
@@ -15,13 +13,10 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Footer from './components/Footer';
 import CarouselFront from './components/Carousel';
-import 'bootstrap'
-
-
+import './App.css';
 
 //SIGNUP
 function App() {
@@ -29,7 +24,11 @@ function App() {
   const [user, setUser] = useState (null);
 
   const [myError, setError] = useState(null);
+<<<<<<< HEAD
   /* const [fetchingUser, setFetchingUser] = useState(true) */
+=======
+  const [fetchingUser, setFetchingUser] = useState(true)
+>>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
 
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
@@ -51,7 +50,7 @@ function App() {
   };
 
   const handleSignIn = async (e) => {
-    console.log('hello')
+    //console.log('hello')
     e.preventDefault()
     try {
       let newUser = {
@@ -61,11 +60,11 @@ function App() {
         console.log (e.target)
         let response = await axios.post(`${API_URL}/signin`, newUser, {withCredentials: true})
         setUser(response.data)
-        /* handleCloseSI(); */
+      
       }
     catch(err){
-      console.log(err)
-      //setError(err.response.data)
+      //console.log(err)
+      setError(err.response.data)
     }
   }
   //ART
@@ -100,20 +99,36 @@ const handleSubmit = async (event) => {
   let response = await axios.post(`${API_URL}/sellform`, newArt)
   setArt([response.data, ...art])
 }
-/* if (fetchingUser) {
+
+//LOGOUT
+const handleLogout = async () => {
+  await axios.post(`${API_URL}/logout`, {}, {withCredentials: true})
+  setUser(null)
+}
+/* 
+if (fetchingUser) {
   return <p>Loading user info. . . </p>
 } */
+
   return (
     <div>
+<<<<<<< HEAD
       <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
       
       {/* <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button> */}
+=======
+      <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
+>>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
       <SignUpDialog open={open} handleClose={handleClose} />
-     {/*  <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button> */}
       <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
+<<<<<<< HEAD
      
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
     <CarouselFront />
+=======
+      <CarouselFront />
+
+>>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
       <Routes>
         <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
         <Route path="/signup" element={<SignUp />}/>
@@ -121,7 +136,10 @@ const handleSubmit = async (event) => {
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
+<<<<<<< HEAD
         
+=======
+>>>>>>> 8b4b90ba070df46ef444e03da6590d450ca67d01
       </Routes>
       <Footer />
     </div>
