@@ -39,7 +39,7 @@ console.log(art)
                             cover={<img alt="art" src={elem.image} height={200}/>}>
                            <Meta title={elem.title}  />
                            <p>by : {elem.artist}</p>
-                            </Card>,
+                            </Card>
                             </Link>
                             </div>
                           

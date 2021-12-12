@@ -15,6 +15,7 @@ import PageNotFound from './components/404notFound'
 import Footer from './components/Footer';
 import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';
+import Profile from './components/Profile';
 import './App.css';
 
 //SIGNUP
@@ -23,7 +24,7 @@ function App() {
   const [user, setUser] = useState (null);
 
   const [myError, setError] = useState(null);
-  /* const [fetchingUser, setFetchingUser] = useState(true)
+ /*  const [fetchingUser, setFetchingUser] = useState(true)
  */
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
@@ -55,13 +56,14 @@ function App() {
         console.log (e.target)
         let response = await axios.post(`${API_URL}/signin`, newUser, {withCredentials: true})
         setUser(response.data)
-      
+        handleCloseSI();      
       }
     catch(err){
       //console.log(err)
       setError(err.response.data)
     }
   }
+
   //ART
   useEffect(() => {
 
@@ -120,6 +122,7 @@ const handleLogout = async () => {
       <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
       <Route path='*' element={<PageNotFound />} />
       <Route path='/live' element={<LiveAuction />} />
+      <Route path='/user' element={<Profile />} />
     </Routes>
     <Footer />
   </div>

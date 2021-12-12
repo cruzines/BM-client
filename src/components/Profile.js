@@ -1,10 +1,11 @@
 import React from 'react';
-import Stripe from './Stripe';
+/* import Stripe from './Stripe'; */
 
 function Profile() {
     return (
         <div>
-            <Stripe />
+       TESTE
+           {/*  <Stripe /> */}
         </div>
     )
 }
