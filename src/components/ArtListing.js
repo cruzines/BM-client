@@ -4,10 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Card } from 'antd';
 import '../Galery.css'
-
-
 const { Meta } = Card;
-
 function ArtListing(props) {
 //console.log(props)
     const {art} = props

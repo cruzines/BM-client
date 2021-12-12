@@ -9,7 +9,6 @@ import { Card, Image,  } from 'antd';
 import { Button } from 'antd';
 import { InputNumber, Select, Space } from 'antd';
 import '../ArtDetail.css'
-
 const { Meta } = Card;
 function ArtDetail(props) {
     const {artId} = useParams()
@@ -70,4 +69,3 @@ function ArtDetail(props) {
     )
 }
 export default ArtDetail
-
