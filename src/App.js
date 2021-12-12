@@ -25,8 +25,8 @@ function App() {
   const [user, setUser] = useState (null);
 
   const [myError, setError] = useState(null);
-  const [fetchingUser, setFetchingUser] = useState(true)
-
+  /* const [fetchingUser, setFetchingUser] = useState(true)
+ */
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
 
@@ -102,30 +102,29 @@ const handleLogout = async () => {
   await axios.post(`${API_URL}/logout`, {}, {withCredentials: true})
   setUser(null)
 }
-/* 
-if (fetchingUser) {
+
+/* if (fetchingUser) {
   return <p>Loading user info. . . </p>
 } */
 
   return (
     <div>
-      <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
-      <SignUpDialog open={open} handleClose={handleClose} />
-      <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
-      <CarouselFront />
+    <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
+    <SignUpDialog open={open} handleClose={handleClose} />
+    <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
+    <CarouselFront />
 
-      <Routes>
-        <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
-        <Route path="/signup" element={<SignUp />}/>
-        <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}/>}   />
-        <Route path="/" element={<ArtListing art={art}/>} />
-        <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
-        <Route path='*' element={<PageNotFound />} />
-        <Route path='/live' element={<LiveAuction />} />
-
-      </Routes>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
+      <Route path="/signup" element={<SignUp />}/>
+      <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}/>}   />
+      <Route path="/" element={<ArtListing art={art}/>} />
+      <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
+      <Route path='*' element={<PageNotFound />} />
+      <Route path='/live' element={<LiveAuction />} />
+    </Routes>
+    <Footer />
+  </div>
   );
 }
 
