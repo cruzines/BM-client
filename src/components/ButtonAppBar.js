@@ -10,6 +10,8 @@ import '../App.css';
 
 function ButtonAppBar(props) {
 
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -28,10 +30,13 @@ function ButtonAppBar(props) {
           <Button color="inherit">Auctions</Button>
           {
             props.user ? (
+              <>
+              <Button href="/profile" color="inherit">Profile</Button>
               <Button onClick={props.onLogout} color="inherit">Logout</Button>
+              </>        
             ) : (
           <>
-          <Button onClick={props.openSI} color="inherit">Log in</Button>
+          <Button className="myBtn" onClick={props.openSI} color="inherit">Log in</Button>
           <Button onClick={props.open} color="inherit">Sign up</Button>
           </>
             )

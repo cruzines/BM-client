@@ -12,8 +12,12 @@ import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
-import Landing from "./components/Landing";
-import LiveAuction from './components/LiveAuction'
+import useMediaQuery from '@mui/material/useMediaQuery';
+import CssBaseline from '@mui/material/CssBaseline';
+import Footer from './components/Footer';
+import CarouselFront from './components/Carousel';
+import LiveAuction from './components/LiveAuction';
+import './App.css';
 
 //SIGNUP
 function App() {
@@ -43,7 +47,7 @@ function App() {
   };
 
   const handleSignIn = async (e) => {
-    console.log('hello')
+    //console.log('hello')
     e.preventDefault()
     try {
       let newUser = {
@@ -117,7 +121,6 @@ if (fetchingUser) {
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
-        <Route path='/' element={<Landing />} />
         <Route path='/live' element={<LiveAuction />} />
 
       </Routes>

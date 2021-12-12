@@ -1,5 +1,10 @@
 .myNav {
     background-color: #04435d;
-    color: white
+    color: white;
+    
 }
+.myNav :hover {
+    color: #95b3be;
+}
+
 
