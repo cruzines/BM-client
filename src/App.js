@@ -46,7 +46,7 @@ function App() {
   };
 
   const handleSignIn = async (e) => {
-    console.log('hello')
+    //console.log('hello')
     e.preventDefault()
     try {
       let newUser = {
