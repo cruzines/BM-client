@@ -12,8 +12,6 @@ import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
-import useMediaQuery from '@mui/material/useMediaQuery';
-import CssBaseline from '@mui/material/CssBaseline';
 import Footer from './components/Footer';
 import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';

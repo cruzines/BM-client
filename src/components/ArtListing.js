@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Card } from 'antd';
 import '../Galery.css'
-import {Container, Row, Col } from 'react-bootstrap'
+
 
 const { Meta } = Card;
 
@@ -31,7 +31,7 @@ console.log(art)
                 art.map((elem) => {
                     return (
                             
-                            <Col className="colX">
+                            <div className="colX">
                             <Link to={`/auctiondetail/${elem._id}`}> 
                             <Card hoverable 
                             className='images'
@@ -41,7 +41,7 @@ console.log(art)
                            <p>by : {elem.artist}</p>
                             </Card>,
                             </Link>
-                            </Col>
+                            </div>
                           
                            
 
