@@ -12,16 +12,12 @@ import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
-<<<<<<< HEAD
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from '@mui/material/CssBaseline';
 import Footer from './components/Footer';
 import CarouselFront from './components/Carousel';
+import LiveAuction from './components/LiveAuction';
 import './App.css';
-=======
-import Landing from "./components/Landing";
-import LiveAuction from './components/LiveAuction'
->>>>>>> 67b9ea481b986707875dacc90458a3407792aa9a
 
 //SIGNUP
 function App() {
@@ -125,12 +121,8 @@ if (fetchingUser) {
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
-<<<<<<< HEAD
-=======
-        <Route path='/' element={<Landing />} />
         <Route path='/live' element={<LiveAuction />} />
 
->>>>>>> 67b9ea481b986707875dacc90458a3407792aa9a
       </Routes>
       <Footer />
     </div>
