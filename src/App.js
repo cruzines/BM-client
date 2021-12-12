@@ -12,9 +12,8 @@ import ArtListing from "./components/ArtListing";
 import {API_URL} from './config'
 import ArtDetail from "./components/ArtDetail";
 import AddArt from "./components/AddArt";
-import ResponsiveAppBar from './components/ResponsiveAppBar'
+import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
-import Landing from "./components/Landing";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -27,7 +26,10 @@ import 'bootstrap'
 //SIGNUP
 function App() {
 
-  
+  const [user, setUser] = useState (null);
+
+  const [myError, setError] = useState(null);
+  /* const [fetchingUser, setFetchingUser] = useState(true) */
 
   const [art, setArt] = useState([])
   const [open, setOpen] = useState(false);
@@ -48,6 +50,24 @@ function App() {
     setOpenSI(false);
   };
 
+  const handleSignIn = async (e) => {
+    console.log('hello')
+    e.preventDefault()
+    try {
+      let newUser = {
+      email: e.target.email.value,
+      password: e.target.password.value
+        }
+        console.log (e.target)
+        let response = await axios.post(`${API_URL}/signin`, newUser, {withCredentials: true})
+        setUser(response.data)
+        /* handleCloseSI(); */
+      }
+    catch(err){
+      console.log(err)
+      //setError(err.response.data)
+    }
+  }
   //ART
   useEffect(() => {
 
@@ -80,28 +100,28 @@ const handleSubmit = async (event) => {
   let response = await axios.post(`${API_URL}/sellform`, newArt)
   setArt([response.data, ...art])
 }
-
+/* if (fetchingUser) {
+  return <p>Loading user info. . . </p>
+} */
   return (
     <div>
-      <ResponsiveAppBar/>
-   <CarouselFront />
-      {/*
-      <div className="Auth">
-      <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button>
+      <ButtonAppBar openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
+      
+      {/* <Button variant="contained" color="primary" onClick={handleOpen}>Sign up</Button> */}
       <SignUpDialog open={open} handleClose={handleClose} />
-      <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button>
-      <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} />
+     {/*  <Button variant="contained" color="primary" onClick={handleOpenSI}>Log in</Button> */}
+      <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
      
-      </div> */}
     {/*  <MyNav onLogout={handleLogout} user={user} /> */}
+    <CarouselFront />
       <Routes>
-        <Route path="/signin" element={<SignIn />}/>
+        <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}/>}   />
         <Route path="/" element={<ArtListing art={art}/>} />
         <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
         <Route path='*' element={<PageNotFound />} />
-        <Route path='/' element={<Landing />} />
+        
       </Routes>
       <Footer />
     </div>

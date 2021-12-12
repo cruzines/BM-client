@@ -1,0 +1,16 @@
+.detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+.bid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 240px;
+}

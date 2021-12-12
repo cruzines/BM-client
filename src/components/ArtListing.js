@@ -25,33 +25,32 @@ console.log(art)
     return (
        
              <div className="containerX">
-            <Container fluid="md">
-            <Row>             
+                       
             
             {
                 art.map((elem) => {
                     return (
-
+                            
                             <Col className="colX">
-
+                            <Link to={`/auctiondetail/${elem._id}`}> 
                             <Card hoverable 
                             className='images'
                             style={{ width: 240 }}
-                            cover={<img alt="art" src={elem.image} />}>
-                            <Link to={`/auctiondetail/${elem._id}`}> <Meta title={elem.title}  /></Link>
+                            cover={<img alt="art" src={elem.image} height={200}/>}>
+                           <Meta title={elem.title}  />
+                           <p>by : {elem.artist}</p>
                             </Card>,
- 
+                            </Link>
                             </Col>
                           
-
+                           
 
 
                     )
                 })
             }
 
-</Row>
-</Container>
+
 </div>
         
     )

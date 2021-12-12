@@ -44,7 +44,6 @@ const SignUp = ({ handleClose }) => {
 
     await axios.post(`${API_URL}/signup`, newUser, {withCredentials: true})
     handleClose();
-    //SignInDialog(); NOT WORKING :(
   };
 
   return (

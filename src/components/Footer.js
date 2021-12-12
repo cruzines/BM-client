@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Footer.css';
-import logoFooter from '../images/logoFooter.png'
+import logoFooter from '../images/logo2.png'
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';

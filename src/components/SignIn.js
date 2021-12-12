@@ -19,25 +19,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SignIn = ({ handleCloseSI }) => {
+const SignIn = (props) => {
+ const {onSignIn, handleCloseSI} = props
+
   const classes = useStyles();
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = e => {
-    e.preventDefault();
-    handleCloseSI();
-  };
-
   return (
-    <form className={classes.root} onSubmit={handleSignIn}>
+    <form className={classes.root} onSubmit={onSignIn}>
       <TextField
         label="Email"
         variant="filled"
         type="email"
         required
         value={email}
+        name="email"
         onChange={e => setEmail(e.target.value)}
       />
       <TextField
@@ -46,6 +43,7 @@ const SignIn = ({ handleCloseSI }) => {
         type="password"
         required
         value={password}
+        name="password"
         onChange={e => setPassword(e.target.value)}
       />
       <div>
