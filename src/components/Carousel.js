@@ -40,7 +40,6 @@ function CarouselFront() {
     <div className='text'><h4>Soon available</h4></div>
     </div>
   </Carousel>
-
         </div>
     )
 }

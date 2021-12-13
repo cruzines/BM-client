@@ -31,7 +31,7 @@ function ButtonAppBar(props) {
           {
             props.user ? (
               <>
-              <Button href="/profile" color="inherit">Profile</Button>
+              <Button href="/user" color="inherit">Profile</Button>
               <Button onClick={props.onLogout} color="inherit">Logout</Button>
               </>        
             ) : (

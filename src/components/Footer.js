@@ -136,22 +136,16 @@ const Footer = React.memo(function ArcAppFooter() {
                 <Box
                   component={'img'}
                   mt={-3}
-                  width={120}
-                  height={64}
                   src={logoFooter}
                   alt=""
                   borderRadius={12}
                 />
                 <Typography className={classes.info}>
-                  <h4>
                   Prinsengracht 437, 1016 HM Amsterdam, Netherlands
-                  </h4>
                 </Typography>
 
                 <Typography className={classes.info}>
-                  <h4>
                     admin@bidmasters.fake
-                  </h4>
                 </Typography>
               </Grid>
               <Grid item xs={12} md={8} lg={6}>
@@ -159,7 +153,7 @@ const Footer = React.memo(function ArcAppFooter() {
                   <Grid item xs={6} sm={4}>
                     <CategoryProvider useStyles={useMagCategoryMenuStyles}>
                       <CategoryTitle>
-                        <h4>Auctions</h4>
+                        Auctions
                       </CategoryTitle>
                       <CategoryItem>
                         <h5>Next auctions</h5>
@@ -175,7 +169,7 @@ const Footer = React.memo(function ArcAppFooter() {
                   <Grid item xs={6} sm={4}>
                     <CategoryProvider useStyles={useMagCategoryMenuStyles}>
                       <CategoryTitle>
-                        <h4>Services</h4>
+                        Services
                       </CategoryTitle>
                       <CategoryItem>
                         <h5>Art expertise</h5>
@@ -191,10 +185,7 @@ const Footer = React.memo(function ArcAppFooter() {
                   <Grid item xs={5} sm={4}>
                     <CategoryProvider useStyles={useMagCategoryMenuStyles}>
                       <CategoryTitle>
-                        <br />
-                        <br />
-                        <br />
-                        <h4>About</h4>
+                        About
                       </CategoryTitle>
                       <CategoryItem>
                         <h5>Contact</h5>
@@ -227,10 +218,10 @@ const Footer = React.memo(function ArcAppFooter() {
                 <NavMenu useStyles={usePlainNavigationMenuStyles}>
                   <ColumnToRow at={'sm'}>
                     <NavItem className={classes.legalLink}>
-                      <h4>Terms & Conditions</h4>
+                      Terms & Conditions
                     </NavItem>
                     <NavItem className={classes.legalLink}>
-                      <h4>Privacy Policy</h4>
+                      Privacy Policy
                     </NavItem>
                     
                   </ColumnToRow>
@@ -238,16 +229,16 @@ const Footer = React.memo(function ArcAppFooter() {
               </Item>
               <Item>
                 <Box py={1} textAlign={{ xs: 'center', md: 'right' }}>
-                  <Typography
+                {/*   <Typography
                     component={'p'}
                     variant={'caption'}
                     color={'textSecondary'}
-                  >
-                    
-                      Designed by Anonymous sources and Inês, Maria and Ricardo © 2021 All rights
+                  > */}
+                  <NavItem className={classes.legalLink} id="phrase">
+                      Created with mui, bootstrap and ant by Inês, Maria and Ricardo © 2021 All rights
                       unreserved, go see who we are
-                   
-                  </Typography>
+                      </NavItem>
+                 {/*  </Typography> */}
                 </Box>
               </Item>
             </ColumnToRow>

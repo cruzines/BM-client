@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignIn = (props) => {
- const {onSignIn, handleCloseSI} = props
+ const {onSignIn, handleSignIn, handleCloseSI} = props
 
   const classes = useStyles();
   const [email, setEmail] = useState('');
@@ -48,7 +48,7 @@ const SignIn = (props) => {
         onChange={e => setPassword(e.target.value)}
       />
       <div>
-      <Button type="submit" variant="contained" onClick={handleCloseSI} style={{backgroundColor:"#04435d", color:"white"}}>
+      <Button type="submit" variant="contained" onClick={{handleSignIn}} style={{backgroundColor:"#04435d", color:"white"}}>
           Log in
         </Button>
         <Button variant="contained" onClick={handleCloseSI}>
