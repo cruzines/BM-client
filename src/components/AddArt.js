@@ -32,6 +32,9 @@ function AddArt(props){
       <div>
       <input id="inputID" class="textFields" name="price"  type="text"  placeholder=" Price wanted"/>
       </div>
+      <div>
+      <input id="inputID" class="textFields" name="days"  type="text"  placeholder=" How many days of auction"/>
+      </div>
       <div className="upload-btn-wrapper">
       <button class="btn"><img src={imageDowload} alt="upload"/> Upload Photo</button>
 

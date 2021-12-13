@@ -15,6 +15,10 @@
   width: 240px;
 }
 
-.color{
-  color: black;
+.offerButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
