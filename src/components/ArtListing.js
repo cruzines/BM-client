@@ -3,7 +3,10 @@ import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Card } from 'antd';
+import CarouselFront from './Carousel';
 import '../Galery.css'
+import '../CarousselF.css';
+
 const { Meta } = Card;
 
 
@@ -17,7 +20,9 @@ function ArtListing(props) {
       </Box>
     }
     return (
-             <div className="containerX">
+        <div>
+        <CarouselFront />
+             <div className="containerX">     
             {
                 art.map((elem) => {
                     return (
@@ -35,6 +40,7 @@ function ArtListing(props) {
                     )
                 })
             }
+</div>
 </div>
     )
 }

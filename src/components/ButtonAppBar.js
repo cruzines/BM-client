@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 function ButtonAppBar(props) {
@@ -31,7 +31,7 @@ function ButtonAppBar(props) {
           {
             props.user ? (
               <>
-              <Button href="/user" color="inherit">Profile</Button>
+              <Button color="inherit"><Link to="/user" className="myNav">Profile</Link></Button>
               <Button onClick={props.onLogout} color="inherit">Logout</Button>
               </>        
             ) : (
