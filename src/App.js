@@ -26,6 +26,7 @@ function App() {
   /* const [fetchingUser, setFetchingUser] = useState(true)
  */
   const [art, setArt] = useState([])
+  
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -87,8 +88,8 @@ const handleSubmit = async (event) => {
     title: event.target.title.value,
     year: event.target.year.value,
     image: imgResponse.data.image,
-    price: event.target.price.value
-    
+    price: event.target.price.value,
+    days: event.target.days.value
   }
   
   let response = await axios.post(`${API_URL}/sellform`, newArt)

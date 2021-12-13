@@ -39,7 +39,7 @@ function CarouselFront() {
     <img className='image' src={img4} style={contentStyle} alt='art'/>
     <div className='text'><h4>Soon available</h4></div>
     </div>
-  </Carousel>,
+  </Carousel>
 
         </div>
     )

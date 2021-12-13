@@ -194,7 +194,7 @@ const Footer = React.memo(function ArcAppFooter() {
                         <br />
                         <br />
                         <br />
-                        <h4t>About</h4t>
+                        <h4>About</h4>
                       </CategoryTitle>
                       <CategoryItem>
                         <h5>Contact</h5>

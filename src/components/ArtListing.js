@@ -5,10 +5,12 @@ import Box from '@mui/material/Box';
 import { Card } from 'antd';
 import '../Galery.css'
 const { Meta } = Card;
+
+
 function ArtListing(props) {
 //console.log(props)
     const {art} = props
-console.log(art)
+//console.log(art)
     if(!art.length) {
         return <Box sx={{ display: 'flex' }}>
         <CircularProgress />
@@ -27,7 +29,7 @@ console.log(art)
                             cover={<img alt="art" src={elem.image} height={200}/>}>
                            <Meta title={elem.title}  />
                            <p>by : {elem.artist}</p>
-                            </Card>,
+                            </Card>
                             </Link>
                             </div>
                     )
