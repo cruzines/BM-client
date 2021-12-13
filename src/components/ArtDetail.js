@@ -14,9 +14,9 @@ const { Meta } = Card;
 
 
 function ArtDetail(props) {
-  const [openT, setOpenT] = useState([]);
+  const [showForm, setShowForm] = useState(true)
     const {artId} = useParams()
-    const [artDetail, setArtDetail] = useState(null)
+    const [artDetail, setArtDetail] = useState(false)
     useEffect(() => {
         const getData = async () => {
            let response = await axios.get(`${API_URL}/auctiondetail/${artId}`)
@@ -41,7 +41,7 @@ function ArtDetail(props) {
   
     function onFinish() {
       //console.log('finished!');
-      setOpenT(false);
+      setShowForm(false)
       
     }
        
@@ -75,9 +75,9 @@ function ArtDetail(props) {
     <div className="offerButton">
     <Countdown title="Auction expires" value={deadline} onFinish={onFinish} /> 
   {  
-openT ? (
+showForm ? 
 <BidDrawer />
-) : (null)
+ : (null)
 }
 </div>
     </Space>
