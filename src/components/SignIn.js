@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const SignIn = (props) => {
  const {onSignIn, handleSignIn, handleCloseSI, myError} = props
- //console.log(myError)
+ 
 
   const classes = useStyles();
   const [email, setEmail] = useState('');
@@ -50,12 +50,10 @@ const SignIn = (props) => {
         value={password}
         name="password"
         onChange={e => setPassword(e.target.value)}
-       
-
       />
       <div>
       {
-        myError ? <Alert severity="error">Error! Please try again</Alert> : null
+        myError ? <Alert severity="error">{myError.error}</Alert> : null
       }
       <Button type="submit" variant="contained" onClick={{handleSignIn}} style={{backgroundColor:"#04435d", color:"white"}}>
           Log in
