@@ -24,8 +24,8 @@ function App() {
   const [user, setUser] = useState (null);
 
   const [myError, setError] = useState(null);
- /*  const [fetchingUser, setFetchingUser] = useState(true)
- */
+  /* const [fetchingUser, setFetchingUser] = useState(true) */
+
   const [art, setArt] = useState([])
   
   const [open, setOpen] = useState(false);
@@ -60,7 +60,7 @@ function App() {
         handleCloseSI();      
       }
     catch(err){
-      //console.log(err)
+      console.log(err.response.data)
       setError(err.response.data)
     }
   }
@@ -107,12 +107,12 @@ const handleLogout = async () => {
 /* if (fetchingUser) {
   return <p>Loading user info. . . </p>
 } */
-
+console.log(myError)
   return (
     <div>
     <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
     <SignUpDialog open={open} handleClose={handleClose} />
-    <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn}/>
+    <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn} myError={myError}/>
     <CarouselFront />
 
     <Routes>

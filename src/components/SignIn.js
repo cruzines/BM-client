@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles, TextField, Button } from '@material-ui/core';
+import { Alert } from '@mui/material';
 import '../App.css';
 
 const useStyles = makeStyles(theme => ({
@@ -21,14 +22,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignIn = (props) => {
- const {onSignIn, handleSignIn, handleCloseSI} = props
+ const {onSignIn, handleSignIn, handleCloseSI, myError} = props
+ //console.log(myError)
 
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
+    <div>
     <form className={classes.root} onSubmit={onSignIn}>
+  
       <TextField
         label="Email"
         variant="filled"
@@ -46,8 +50,13 @@ const SignIn = (props) => {
         value={password}
         name="password"
         onChange={e => setPassword(e.target.value)}
+       
+
       />
       <div>
+      {
+        myError ? <Alert severity="error">Error! Please try again</Alert> : null
+      }
       <Button type="submit" variant="contained" onClick={{handleSignIn}} style={{backgroundColor:"#04435d", color:"white"}}>
           Log in
         </Button>
@@ -56,6 +65,8 @@ const SignIn = (props) => {
         </Button>
       </div>
     </form>
+</div>
+ 
   );
 };
 
