@@ -26,3 +26,8 @@
   .notes-month section {
     font-size: 28px;
   }
+
+  .errorSize {
+    margin-top: 50px;
+    height: 750px;
+  }

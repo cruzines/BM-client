@@ -16,8 +16,9 @@ import Footer from './components/Footer';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
-import './App.css';
 import { Calendar, Badge } from 'antd';
+import './App.css';
+
 
 //SIGNUP
 function App() {
@@ -84,7 +85,8 @@ function App() {
 const handleSubmit = async (event) => {
   event.preventDefault()
   //console.log(event.target.price.value)
-
+const {user} = user
+console.log(user)
   console.log(event.target.myImage.files[0])
 	let formData = new FormData()
 	formData.append('imageUrl', event.target.myImage.files[0])
@@ -192,7 +194,7 @@ function monthCellRender(value) {
     <Routes>
       <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
       <Route path="/signup" element={<SignUp />}/>
-      <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}  />}   />
+      <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit} user={user} />}   />
       <Route path="/" element={<ArtListing art={art}/>} />
       <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
       <Route path='/live' element={<LiveAuction />} />
