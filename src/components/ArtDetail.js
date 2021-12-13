@@ -9,7 +9,6 @@ import { Card, Image, Space, Statistic } from 'antd';
 import '../ArtDetail.css'
 import BidDrawer from './BidDrawer';
 
-
 const { Meta } = Card;
 
 

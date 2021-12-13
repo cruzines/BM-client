@@ -81,6 +81,7 @@ const SignUp = ({ handleClose }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <div>
+      
         <Button type="submit" variant="contained" style={{backgroundColor:"#04435d", color:"white"}} >
           Sign up
         </Button>
