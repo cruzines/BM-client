@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';
 import './App.css';
-
+import Profile from './components/Profile'
 //SIGNUP
 function App() {
 
@@ -120,6 +120,8 @@ const handleLogout = async () => {
       <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
       <Route path='*' element={<PageNotFound />} />
       <Route path='/live' element={<LiveAuction />} />
+      <Route path='/user' element={<Profile />} />
+
     </Routes>
     <Footer />
   </div>
