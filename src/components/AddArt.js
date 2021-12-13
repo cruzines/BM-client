@@ -4,11 +4,19 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import imageDowload from '../images/customized-upload-icon.png'
+import CarouselFront from './Carousel';
 
 function AddArt(props){
 	
 	const {btnSubmit} = props
+
+
+
+
+  
 	return (
+    <div>
+      <CarouselFront />
 		<div class="form">
        
 			<Box
@@ -131,7 +139,7 @@ function AddArt(props){
     */}
 
 	</div>
-
+  </div>
 
 	)
 }

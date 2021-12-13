@@ -5,18 +5,27 @@ import {API_URL} from '../config';
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import { Card, Image, Space, Statistic } from 'antd';
+import { Card, Image, Space, Statistic, Button, Input, Carousel } from 'antd';
 import '../ArtDetail.css'
 import BidDrawer from './BidDrawer';
+import CarouselFront from './Carousel';
 
 
 const { Meta } = Card;
 
 
 function ArtDetail(props) {
+  console.log(props)
+  const {artId} = useParams()
   const [showForm, setShowForm] = useState(true)
-    const {artId} = useParams()
+ 
+  const {btnSubmitG} = props
+  
+  const [bider, setBider] = useState([])
+
+   
     const [artDetail, setArtDetail] = useState(false)
+    
     useEffect(() => {
         const getData = async () => {
            let response = await axios.get(`${API_URL}/auctiondetail/${artId}`)
@@ -29,6 +38,8 @@ function ArtDetail(props) {
             <CircularProgress />
           </Box>
         }
+        
+        
 
         
 
@@ -40,18 +51,35 @@ function ArtDetail(props) {
 
   
     function onFinish() {
-      //console.log('finished!');
+      console.log('finished!');
       setShowForm(false)
       
     }
-       
+     
+    {/*if (Date.now()  >=  Date.parse(artDetail.createdAt)) {
+      setShowForm(false)
+    }
+  */}
+   
     
-
+    const handleSubmitG = async (event) => {
+      event.preventDefault()
+      console.log("bid submited")
+    
+    
+      let newBid = {
+        bid: event.target.bid.value   
+      }
+      let response = await axios.post(`${API_URL}/auctiondetail/${artId}`, newBid)
+      setBider([response.data, ...bider])
+      console.log(response.data)
+    }
 
 
 
     return (
         <div >
+<CarouselFront />
             <h2>Piece detail:</h2>
             <div className="detail">
             <Space direction="vertical">        
@@ -71,18 +99,21 @@ function ArtDetail(props) {
     <p>Starting bid: €{artDetail.price}</p>
   </Card>
   <br/>
-  
+ 
+    
     <div className="offerButton">
     <Countdown title="Auction expires" value={deadline} onFinish={onFinish} /> 
-  {  
+  {/* <Link to='/bidpage'><button>Make an offer</button></Link>*/}
+ {  
 showForm ? 
-<BidDrawer />
+<BidDrawer btnSubmitG={handleSubmitG} />
  : (null)
-}
+} 
 </div>
     </Space>
     </div>
         </div>
     )
+    
 }
 export default ArtDetail
