@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import { Card } from 'antd';
 import CarouselFront from './Carousel';
 import '../Galery.css'
+import '../CarousselF.css';
+
 const { Meta } = Card;
 
 
@@ -18,8 +20,9 @@ function ArtListing(props) {
       </Box>
     }
     return (
-             <div className="containerX">
-                 <CarouselFront />
+        <div>
+        <CarouselFront />
+             <div className="containerX">     
             {
                 art.map((elem) => {
                     return (
@@ -37,6 +40,7 @@ function ArtListing(props) {
                     )
                 })
             }
+</div>
 </div>
     )
 }

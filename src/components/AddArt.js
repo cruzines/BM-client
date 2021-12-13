@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import imageDowload from '../images/customized-upload-icon.png'
 import CarouselFront from './Carousel';
+import '../CarousselF.css'
 
 function AddArt(props){
 	

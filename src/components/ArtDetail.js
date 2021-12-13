@@ -9,6 +9,7 @@ import { Card, Image, Space, Statistic, Button, Input, Carousel } from 'antd';
 import '../ArtDetail.css'
 import BidDrawer from './BidDrawer';
 import CarouselFront from './Carousel';
+import '../CarousselF.css';
 
 const { Meta } = Card;
 
