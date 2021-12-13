@@ -91,7 +91,7 @@ const Footer = React.memo(function ArcAppFooter() {
   const classes = useStyles();
   return (
     
-      <Box width={'100%'}>
+      <Box width={'100%'} className="addcolor">
         <Box px={2} py={6} className={classes.top} position={'relative'}>
           <div className={classes.overlay}>
             <img

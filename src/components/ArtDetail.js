@@ -80,7 +80,7 @@ function ArtDetail(props) {
     return (
         <div >
 <CarouselFront />
-            <h2>Piece detail:</h2>
+            
             <div className="detail">
             <Space direction="vertical">        
     <Card
@@ -97,6 +97,7 @@ function ArtDetail(props) {
     <p>by : {artDetail.artist}</p>
     <p>Year: {artDetail.year}</p>
     <p>Starting bid: €{artDetail.price}</p>
+    <p>Last bid: </p>
   </Card>
   <br/>
  
