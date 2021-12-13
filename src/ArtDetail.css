@@ -6,7 +6,7 @@
   flex-wrap: nowrap;
   flex-direction: column;
 }
-.bid{
+.bids{
   display: flex;
   justify-content: center;
   align-items: center;

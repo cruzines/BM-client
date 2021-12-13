@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-import { Drawer, Button, Select, InputNumber } from 'antd';
+import { Drawer, Button, Select, InputNumber, Input } from 'antd';
+import axios from 'axios';
+import {API_URL} from '../config';
+import {Link } from 'react-router-dom'
 
 
-function BidDrawer() {
+function BidDrawer(props) {
     const [visible, setVisible] = useState(false);
+   console.log()
+    const {btnSubmitG} = props
+
     const showDrawer = () => {
       setVisible(true);
     };
@@ -20,20 +26,24 @@ function BidDrawer() {
         <Option value="CNY">¥</Option>
       </Select>
     );
+
+    
+    
     
     return (
       <>
         <Button type="primary" onClick={showDrawer}>
-          Make an offer
+         Make an offer
         </Button>
         <Drawer title="Make your offer" placement="bottom" onClose={onClose} visible={visible}>
         
-  <div className="bid">
+  <div className="bids"> 
   <br/>
-  <InputNumber  addonAfter={selectAfter} defaultValue={0} />
-  <Button type="primary" block>
-      Submit
-    </Button>
+  <form onSubmit={btnSubmitG}>
+  <Input placeholder="Enter your bid" addonAfter={selectAfter}  name="bid"  type="number"/>
+  
+  <button  type="submit"  >Submit</button>
+    </form>
     </div>
         </Drawer>
       </>
