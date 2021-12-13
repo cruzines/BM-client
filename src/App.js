@@ -13,7 +13,6 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Footer from './components/Footer';
-import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import './App.css';
@@ -113,7 +112,6 @@ console.log(myError)
     <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
     <SignUpDialog open={open} handleClose={handleClose} />
     <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn} myError={myError}/>
-    <CarouselFront />
 
     <Routes>
       <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
@@ -121,9 +119,9 @@ console.log(myError)
       <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}/>}   />
       <Route path="/" element={<ArtListing art={art}/>} />
       <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
-      <Route path='*' element={<PageNotFound />} />
       <Route path='/live' element={<LiveAuction />} />
       <Route path='/user' element={<Profile />} />
+      <Route path='*' element={<PageNotFound />}/>
     </Routes>
     <Footer />
   </div>
