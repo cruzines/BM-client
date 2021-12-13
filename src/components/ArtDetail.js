@@ -5,12 +5,16 @@ import {API_URL} from '../config';
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import { Card, Image,  } from 'antd';
-import { Button } from 'antd';
-import { InputNumber, Select, Space } from 'antd';
+import { Card, Image, Space, Statistic } from 'antd';
 import '../ArtDetail.css'
+import BidDrawer from './BidDrawer';
+
+
 const { Meta } = Card;
+
+
 function ArtDetail(props) {
+  const [openT, setOpenT] = useState([]);
     const {artId} = useParams()
     const [artDetail, setArtDetail] = useState(null)
     useEffect(() => {
@@ -25,15 +29,27 @@ function ArtDetail(props) {
             <CircularProgress />
           </Box>
         }
-        const { Option } = Select;
-        const selectAfter = (
-          <Select defaultValue="USD" style={{ width: 60 }}>
-            <Option value="USD">$</Option>
-            <Option value="EUR">€</Option>
-            <Option value="GBP">£</Option>
-            <Option value="CNY">¥</Option>
-          </Select>
-        );
+
+        
+
+        const { Countdown } = Statistic;
+    const deadline = Date.parse(artDetail.createdAt)  + 1000 * 60 * 60 * 24 *  artDetail.days + 1000 * 30; 
+     //console.log(Date.now())
+    //console.log(deadline)
+
+
+  
+    function onFinish() {
+      //console.log('finished!');
+      setOpenT(false);
+      
+    }
+       
+    
+
+
+
+
     return (
         <div >
             <h2>Piece detail:</h2>
@@ -54,15 +70,16 @@ function ArtDetail(props) {
     <p>Year: {artDetail.year}</p>
     <p>Starting bid: €{artDetail.price}</p>
   </Card>
-  <h4>Make your offer:</h4>
-  <div className="bid">
   <br/>
-  <InputNumber  addonAfter={selectAfter} defaultValue={50} />
-  <Button type="primary" block>
-      Submit
-    </Button>
-    </div>
-    <br />
+  
+    <div className="offerButton">
+    <Countdown title="Auction expires" value={deadline} onFinish={onFinish} /> 
+  {  
+openT ? (
+<BidDrawer />
+) : (null)
+}
+</div>
     </Space>
     </div>
         </div>

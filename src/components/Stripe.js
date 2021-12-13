@@ -5,10 +5,10 @@ import CheckoutForm from "./CheckoutForm";
 import "./Stripe.css";
 import { API_URL } from "../config";
 
-const stripePromise = loadStripe('');
+const stripePromise = loadStripe('pk_test_51K5rplFxwKKTQ3RSDxokOAY1PC41OHTJKciaob6lLK4kTrRsbQ984HXiA9OMf3GiOE5yjbf82KkHevxtCXnKjlUw00YBCpzfxS');
 
 export default function App() {
-  const [clientSecret, setClientSecret] = useState("pk_test_51K5rplFxwKKTQ3RSDxokOAY1PC41OHTJKciaob6lLK4kTrRsbQ984HXiA9OMf3GiOE5yjbf82KkHevxtCXnKjlUw00YBCpzfxS");
+  const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
