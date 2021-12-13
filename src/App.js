@@ -13,10 +13,11 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Footer from './components/Footer';
-// import CarouselFront from './components/Carousel';
+import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import './App.css';
+
 //SIGNUP
 function App() {
 
