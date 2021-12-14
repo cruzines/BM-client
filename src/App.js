@@ -100,6 +100,7 @@ const handleSubmit = async (event) => {
     price: event.target.price.value,
     days: event.target.days.value,
     user: userId
+
   }
   
   let response = await axios.post(`${API_URL}/sellform`, newArt)
