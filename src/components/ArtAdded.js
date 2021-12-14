@@ -1,12 +1,11 @@
 import {Link} from 'react-router-dom';
+import { useParams } from 'react-router'
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Card } from 'antd';
 import CarouselFront from './Carousel';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
-import {API_URL} from '../config'
+import {useState} from 'react';
 import '../Profile.css'
 import '../Galery.css';
 import '../CarousselF.css';
@@ -15,29 +14,38 @@ import '../CarousselF.css';
 const { Meta } = Card;
 
 function ArtAdded(props) {
+
+//const userId = useParams()
+const userId = props.user._id
     
 console.log(props.user._id)
     const [userArt, setUserArt] = useState(null)
 
-    
-     
-    if(!userArt) {
-            return <Box sx={{ display: 'flex' }}>
-            <CircularProgress />
-            <p>Or maybe you didn't add anything yet.</p>
-          </Box>
-        }
-    
 
-console.log(userArt)
+//console.log(props.art)
+console.log(userId)
+    
+const [userArt, setUserArt] = useState (props.art);
+    
+  const artFiltered = userArt.filter((elem) => {
+      return elem.user === userId
+  })
 
+   
+  if(!artFiltered) {
+    return <Box sx={{ display: 'flex' }}>
+    <CircularProgress />
+    <p>Or maybe you didn't add anything yet.</p>
+  </Box>
+}
 
         return (
             <div>
+                <div className="seller">
             <CarouselFront />
                  <div className="containerU">     
                 {
-                    userArt.map((elem) => {
+                   artFiltered.map((elem) => {
                         return (
                                 <div className="colX">
                                 <Link to={`/auctiondetail/${elem._id}`}>
@@ -53,6 +61,7 @@ console.log(userArt)
                         )
                     })
                 }
+    </div>
     </div>
     </div>
         )

@@ -105,7 +105,7 @@ function ArtDetail(props) {
     
     <div className="offerButton">
     <Countdown title="Auction expires" value={deadline} onFinish={onFinish} /> 
-  {/* <Link to='/bidpage'><button>Make an offer</button></Link>*/}
+ 
  {  
 showForm ? 
 <BidDrawer btnSubmitG={handleSubmitG} user={props.user}/>

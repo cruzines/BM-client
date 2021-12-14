@@ -95,3 +95,7 @@
 .containerU {
     height: 350px;
 }
+
+.seller {
+    min-height: 350px;
+}
