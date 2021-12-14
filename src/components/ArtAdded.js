@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import { useParams } from 'react-router'
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
@@ -15,40 +16,28 @@ import '../Profile.css'
 const { Meta } = Card;
 
 function ArtAdded(props) {
+
+//const userId = useParams()
+const userId = props.user._id
     
+//console.log(props.art)
+console.log(userId)
     
-
-
-    const [userArt, setUserArt] = useState(null)
-
-    useEffect(() => {
-        const getData = async () => { 
-            console.log(props.user._id)
-            let user = props.user._id
-           let response = await axios.get(`${API_URL}/user/added/${user}`, {withCredentials: true})
-           setUserArt(response.data)
-        }
-        getData()
-    }, [])
- 
-     
-    if(!userArt) {
-            return <Box sx={{ display: 'flex' }}>
-            <CircularProgress />
-            <p>Or maybe you didn't add anythin yet.</p>
-          </Box>
-        }
+const [userArt, setUserArt] = useState (props.art);
     
+  const weWant = userArt.filter((elem, props) => {
+      return elem.user === userId
+  })
 
-console.log(userArt)
 
 
         return (
             <div>
+                <div className="seller">
             <CarouselFront />
                  <div className="containerU">     
                 {
-                    userArt.map((elem) => {
+                   weWant.map((elem) => {
                         return (
                                 <div className="colX">
                                 <Link to={`/auctiondetail/${elem._id}`}>
@@ -64,6 +53,7 @@ console.log(userArt)
                         )
                     })
                 }
+    </div>
     </div>
     </div>
         )

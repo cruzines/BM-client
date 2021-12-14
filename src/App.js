@@ -135,9 +135,9 @@ const handleLogout = async () => {
       <Route path="/auctiondetail/:artId" element={<ArtDetail user={user} />}/>
       <Route path='*' element={<PageNotFound />}/>
       <Route path='/user' element={<Profile user={user}/>}  />
-      <Route path='/furureauctions' element={<CalendarOutside />}  />
+      <Route path='/futureauctions' element={<CalendarOutside />}  />
       <Route path='/closedauctions' element={<ClosedAuctions />} />
-      <Route path='/user/added/:user' element={<ArtAdded  user={user}/>}  />
+      <Route path='/user/added/:user' element={<ArtAdded  user={user} art={art}/>}  />
     </Routes>
     <Footer />
   </div>
