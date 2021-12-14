@@ -1,3 +1,3 @@
-const API_URL = 'http://localhost:5005/api'
+const API_URL = 'https://bid-masters.herokuapp.com/api'
 
 export {API_URL}
