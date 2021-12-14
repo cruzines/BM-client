@@ -28,7 +28,7 @@ function BidDrawer(props) {
     );
 
     
-    console.log(props.user)
+    //console.log(props.user)
     
     return (
       <>

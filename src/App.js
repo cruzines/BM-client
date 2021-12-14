@@ -13,8 +13,6 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Footer from './components/Footer';
-import CarouselFront from './components/Carousel';
-import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
 import CalendarOutside from "./components/Calendar";
@@ -24,7 +22,9 @@ import ComingSoon from "./components/ComingSoon";
 import Contact from "./components/Contact";
 import Team from './components/Team';
 import Press from './components/Press';
+import ArtAdded from "./components/ArtAdded";
 import './App.css';
+
 
 
 
@@ -142,7 +142,6 @@ const handleLogout = async () => {
       <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit} user={user} />}   />
       <Route path="/" element={<ArtListing art={art}/>} />
       <Route path="/auctiondetail/:artId" element={<ArtDetail user={user} />}/>
-      <Route path='/live' element={<LiveAuction />} />
       <Route path='*' element={<PageNotFound />}/>
       <Route path='/user' element={<Profile user={user}/>} />
       <Route path='/futureauctions' element={<CalendarOutside />}  />
@@ -151,6 +150,8 @@ const handleLogout = async () => {
       <Route path='/contact' element={<Contact />} />
       <Route path='/theteam' element={<Team />} />
       <Route path='/press' element={<Press />} />
+      <Route path='/user' element={<Profile user={user}/>}  />
+      <Route path='/user/added/:user' element={<ArtAdded  user={user} art={art}/>}  />
     </Routes>
     <Footer />
   </div>
