@@ -1,24 +1,27 @@
-<Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-      </CardActions>
-    </Card>
+import axios from 'axios'
+import React, {useState,useEffect} from 'react'
+import LottieControl from './LottieControl'
+import '../App.css'
+
+function ComingSoon() {
+
+    // this is for the json lottie
+    const [someJson, setJson] = useState(null)
+    useEffect(() =>{
+        const getData = async () =>{
+            let res = await axios.get('https://assets6.lottiefiles.com/packages/lf20_2JRlFZ.json')
+            setJson(res.data)
+        }
+        getData()
+    }, [])
+
+    return (
+        <div className="errorSize">
+        <h1 style={{ color: '#04435D', textAlign: 'center', marginBottom: 12, marginTop: 10}}> COMING SOON<br />  This page is under construction. <br /> Please come back later.</h1>
+        <LottieControl animation={someJson} width={300} height={300} />
+            
+        </div>
+    )
+}
+
+export default ComingSoon
