@@ -17,8 +17,9 @@ import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
-import './App.css';
 import { Calendar, Badge } from 'antd';
+import './App.css';
+
 
 
 //SIGNUP
@@ -81,25 +82,26 @@ function App() {
     getData()
 }, [])
 
-
-
+//console.log(user)
 const handleSubmit = async (event) => {
   event.preventDefault()
   //console.log(event.target.price.value)
-
+  
   console.log(event.target.myImage.files[0])
 	let formData = new FormData()
 	formData.append('imageUrl', event.target.myImage.files[0])
 	
 	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
-
+  let userId = user._id
+  //console.log(user._id) 
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
     year: event.target.year.value,
     image: imgResponse.data.image,
     price: event.target.price.value,
-    days: event.target.days.value
+    days: event.target.days.value,
+    user: userId
   }
   
   let response = await axios.post(`${API_URL}/sellform`, newArt)
@@ -194,12 +196,12 @@ function monthCellRender(value) {
     <Routes>
       <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
       <Route path="/signup" element={<SignUp />}/>
-      <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit}  />}   />
+      <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit} user={user} />}   />
       <Route path="/" element={<ArtListing art={art}/>} />
-      <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
+      <Route path="/auctiondetail/:artId" element={<ArtDetail user={user} />}/>
       <Route path='/live' element={<LiveAuction />} />
       <Route path='*' element={<PageNotFound />}/>
-      <Route path='/user' element={<Profile />} user={user} />
+      <Route path='/user' element={<Profile user={user} />}  />
       <Route path='/furureauctions' element={<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />}  />
     </Routes>
     <Footer />

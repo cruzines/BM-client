@@ -15,7 +15,7 @@ const { Meta } = Card;
 
 
 function ArtDetail(props) {
-  console.log(props)
+  //console.log(props)
   const {artId} = useParams()
   const [showForm, setShowForm] = useState(true)
  
@@ -65,11 +65,12 @@ function ArtDetail(props) {
     const handleSubmitG = async (event) => {
       event.preventDefault()
       console.log("bid submited")
-    
-    
+   
       let newBid = {
-        bid: event.target.bid.value   
+        bid: event.target.bid.value,
+        userId: props.user._id  
       }
+      console.log (newBid)
       let response = await axios.post(`${API_URL}/auctiondetail/${artId}`, newBid)
       setBider([response.data, ...bider])
       console.log(response.data)
@@ -80,7 +81,7 @@ function ArtDetail(props) {
     return (
         <div >
 <CarouselFront />
-            <h2>Piece detail:</h2>
+            
             <div className="detail">
             <Space direction="vertical">        
     <Card
@@ -97,6 +98,7 @@ function ArtDetail(props) {
     <p>by : {artDetail.artist}</p>
     <p>Year: {artDetail.year}</p>
     <p>Starting bid: €{artDetail.price}</p>
+    <p>Last bid: </p>
   </Card>
   <br/>
  
@@ -106,7 +108,7 @@ function ArtDetail(props) {
   {/* <Link to='/bidpage'><button>Make an offer</button></Link>*/}
  {  
 showForm ? 
-<BidDrawer btnSubmitG={handleSubmitG} />
+<BidDrawer btnSubmitG={handleSubmitG} user={props.user}/>
  : (null)
 } 
 </div>

@@ -91,7 +91,7 @@ const Footer = React.memo(function ArcAppFooter() {
   const classes = useStyles();
   return (
     
-      <Box width={'100%'}>
+      <Box width={'100%'} className="addcolor">
         <Box px={2} py={6} className={classes.top} position={'relative'}>
           <div className={classes.overlay}>
             <img
@@ -111,8 +111,8 @@ const Footer = React.memo(function ArcAppFooter() {
               wrap
             >
               <Item>
-                <Typography className={classes.newsletterText}>
-                  <h4>BE THE FIRST TO KNOW ABOUT ALL OUR AUCTIONS</h4>
+                <Typography className="textInput" >
+                  Be the first to know about all our auctions
                 </Typography>
               </Item>
               <Item>
@@ -122,8 +122,8 @@ const Footer = React.memo(function ArcAppFooter() {
                   useStyles={useReadyEmailSubscribeStyles}
                   inputClearedAfterSubmit
                 >
-                  <EmailTextInput class="white" placeholder="Enter your email" />
-                  <SubmitButton style={{fontSize:'15px'}}>Submit</SubmitButton>
+                  <EmailTextInput placeholder="Enter your email" />
+                  <SubmitButton style={{fontSize:'15px', backgroundColor:"#04435d"}}>Submit</SubmitButton>
                 </EmailSubscribe>
               </Item>
             </ColumnToRow>

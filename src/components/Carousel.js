@@ -9,6 +9,9 @@ import img3 from '../images/3.jpg'
 import img4 from '../images/4.png'
 import img5 from '../images/5.png'
 import img6 from '../images/6.jpg'
+import img7 from '../images/7.jpg'
+import img8 from '../images/8.png'
+import img9 from '../images/9.jpg'
 
 const contentStyle = {
     height: '260px',
@@ -25,19 +28,19 @@ function CarouselFront() {
             <Carousel autoplay>
     <div className='imageDiv'>
         <img className='image' src={img1} style={contentStyle} alt='art'/>
-        <div className='text'><h4>Soon available</h4></div>
+        <div className='text'><h1>Soon available</h1></div>
     </div>
     <div className='imageDiv'>
-    <img className='image' src={img2} style={contentStyle} alt='art'/>
-    <div className='text'><h4>Soon available</h4></div>
+    <img className='image' src={img5} style={contentStyle} alt='art'/>
+    <div className='text'><h1>Soon available</h1></div>
     </div>
     <div className='imageDiv'>
-    <img className='image' src={img3} style={contentStyle} alt='art'/>
-    <div className='text'><h4>Soon available</h4></div>
+    <img className='image' src={img9} style={contentStyle} alt='art'/>
+    <div className='text'><h1>Soon available</h1></div>
     </div>
     <div className='imageDiv'>
-    <img className='image' src={img4} style={contentStyle} alt='art'/>
-    <div className='text'><h4>Soon available</h4></div>
+    <img className='image' src={img7} style={contentStyle} alt='art'/>
+    <div className='text'><h1>Soon available</h1></div>
     </div>
   </Carousel>
         </div>

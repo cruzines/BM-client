@@ -1,66 +1,115 @@
-import '../AddArt.css'
-import { DropzoneArea, DropzoneAreaBase } from 'material-ui-dropzone';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import imageDowload from '../images/customized-upload-icon.png'
-import CarouselFront from './Carousel';
-import '../CarousselF.css'
+import "../AddArt.css";
+import { DropzoneArea, DropzoneAreaBase } from "material-ui-dropzone";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import imageDowload from "../images/customized-upload-icon.png";
+import CarouselFront from "./Carousel";
+import "../CarousselF.css";
 
-function AddArt(props){
-	
-	const {btnSubmit} = props
-
-
-
-
-  
-	return (
+function AddArt(props) {
+  const { btnSubmit } = props;
+  //console.log(props.user);
+  return (
     <div>
-      <CarouselFront />
-		<div class="form">
-       
-			<Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        '& > :not(style)': { m: 1 },
-      }}
-    >
-     
-		<form onSubmit={btnSubmit}>
-      <div>
-			<input id="inputID" class="textFields" name="artist"  type="text"  placeholder=" Author"/>
-      </div>
-      <div>
-			<input id="inputID" class="textFields" name="title"  type="text"  placeholder=" Title of artwork"/>
-      </div>
-      <div>
-      <input id="inputID" class="textFields" name="year"  type="text"  placeholder=" Dated from"/>
-      </div>
-      <div>
-      <input id="inputID" class="textFields" name="price"  type="text"  placeholder=" Price wanted"/>
-      </div>
-      <div>
-      <input id="inputID" class="textFields" name="days"  type="text"  placeholder=" How many days of auction"/>
-      </div>
-      <div className="upload-btn-wrapper">
-      <button class="btn"><img src={imageDowload} alt="upload"/> Upload Photo</button>
+      {props.user ? (
+        <>
+          <CarouselFront />
+          <div class="form">
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                "& > :not(style)": { m: 1 },
+              }}
+            >
+              <form onSubmit={btnSubmit} user={props.user._id}>
+                <div>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="artist"
+                    type="text"
+                    placeholder=" Author"
+                  />
+                </div>
+                <div>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="title"
+                    type="text"
+                    placeholder=" Title of artwork"
+                  />
+                </div>
+                <div>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="year"
+                    type="text"
+                    placeholder=" Dated from"
+                  />
+                </div>
+                <div>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="price"
+                    type="text"
+                    placeholder=" Price wanted"
+                  />
+                </div>
+                <div>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="days"
+                    type="text"
+                    placeholder=" How many days of auction"
+                  />
+                </div>
+                <div className="upload-btn-wrapper">
+                  <button class="btn">
+                    <img src={imageDowload} alt="upload" /> Upload Photo
+                  </button>
 
-      <input class="btn" name="myImage"  type="file" accept="image/png, image/jpg"  placeholder="Photo here"/> 
-		
-    	</div>
-      
+                  <input
+                    class="btn"
+                    name="myImage"
+                    type="file"
+                    accept="image/png, image/jpg"
+                    placeholder="Photo here"
+                  />
+                </div>
 
-      
-      <div>
-			<button class="button" type="submit" style={{fontSize:'20px'}} >Submit</button>
-      </div>
-		</form>
-			
-      </Box>
-      
-  {/*  
+                <div>
+                  <button
+                    class="button"
+                    type="submit"
+                    style={{ fontSize: "20px" }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </Box>
+          </div>
+        </>
+      ) : (
+        <>
+        
+          {/* LOTTIEEEEEEEEE <iframe src="https://embed.lottiefiles.com/animation/24950"></iframe>  */}
+
+          <p> Botar lottie here </p>
+        </>
+      )}
+    </div>
+  );
+}
+
+{
+  /*  
 <Box
       sx={{
         display: 'flex',
@@ -137,12 +186,7 @@ function AddArt(props){
     </Box>
 
 
-    */}
-
-	</div>
-  </div>
-
-	)
+    */
 }
 
-export default AddArt
+export default AddArt;

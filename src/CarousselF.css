@@ -10,7 +10,7 @@
 .imageDiv {
     position: relative;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .image{
@@ -28,5 +28,5 @@
 }
 
 h4 {
-    color: white;
+    color: #04435d;
 }
