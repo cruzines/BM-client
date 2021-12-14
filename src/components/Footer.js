@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoFooter from '../images/logoFooter.png'
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
@@ -31,7 +32,7 @@ import { usePoofSocialLinkStyles } from '@mui-treasury/styles/socialLink/poof';
 import { useReadyEmailSubscribeStyles } from '@mui-treasury/styles/emailSubscribe/ready';
 import { usePlainNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/plain';
 import '../Footer.css';
-import { Link } from "react-router-dom";
+
 
 const darkTheme = createMuiTheme({ palette: { type: 'dark' } });
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -157,10 +158,10 @@ const Footer = React.memo(function ArcAppFooter() {
                         Auctions
                       </CategoryTitle>
                       <CategoryItem>
-                        <h5>Next auctions</h5>
+                        <Link to ="/furureauctions"><h5>Next auctions calendar</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                        <h5>Closed auctions</h5>
+                        <Link to="/closedauctions" ><h5>Closed auctions</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
                       <Link to='/comingSoon'><h5>Catalogues Subscription</h5></Link>

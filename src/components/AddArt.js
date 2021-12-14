@@ -17,7 +17,7 @@ function AddArt(props) {
   const [someJson, setJson] = useState(null)
     useEffect(() =>{
         const getData = async () =>{
-          let res = await axios.get('https://assets6.lottiefiles.com/private_files/lf30_ELmjRz.json')
+          let res = await axios.get('https://assets3.lottiefiles.com/packages/lf20_jjgda9tx.json')
             setJson(res.data)
        }
         getData()
