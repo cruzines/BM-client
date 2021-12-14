@@ -22,6 +22,7 @@ import './App.css';
 import ComingSoon from "./components/ComingSoon";
 import Contact from "./components/Contact";
 import Team from './components/Team'
+import Press from './components/Press'
 
 
 
@@ -209,6 +210,8 @@ function monthCellRender(value) {
       <Route path='/comingsoon' element={<ComingSoon />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/theteam' element={<Team />} />
+      <Route path='/press' element={<Press />} />
+
 
 
 
