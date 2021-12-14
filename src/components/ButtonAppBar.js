@@ -25,9 +25,9 @@ function ButtonAppBar(props) {
           >
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           <Link to="/" ><img alt="logo" src="/logo2.jpg"/></Link>
+           <Link to="/" className="myNav"><img alt="logo" src="/logo2.jpg"/></Link>
           </Typography>
-          <Button color="inherit">Auctions</Button>
+          <Button color="inherit"><Link to="/sellform" className="myNav">Sell</Link></Button>
           {
             props.user ? (
               <>

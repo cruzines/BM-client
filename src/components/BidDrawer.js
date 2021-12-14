@@ -28,14 +28,18 @@ function BidDrawer(props) {
     );
 
     
-    
+    //console.log(props.user)
     
     return (
       <>
-      
-        <Button type="primary" onClick={showDrawer}>
-         Make an offer
-        </Button>
+      {
+        props.user ? (
+          <>
+          <Button type="primary" onClick={showDrawer}>Make an offer</Button>
+          </>
+        ) : ( null )
+      }
+       
         <Drawer title="Make your offer" placement="bottom" onClose={onClose} visible={visible}>
         
   <div className="bids"> 

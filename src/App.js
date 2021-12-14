@@ -13,13 +13,13 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Footer from './components/Footer';
-import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
 import CalendarOutside from "./components/Calendar";
 
 import ClosedAuctions from "./components/ClosedAuctions";
 import './App.css';
+import ArtAdded from "./components/ArtAdded";
 
 //SIGNUP
 function App() {
@@ -81,26 +81,26 @@ function App() {
     getData()
 }, [])
 
-
-
+//console.log(user)
 const handleSubmit = async (event) => {
   event.preventDefault()
   //console.log(event.target.price.value)
-const {user} = user
-console.log(user)
+  
   console.log(event.target.myImage.files[0])
 	let formData = new FormData()
 	formData.append('imageUrl', event.target.myImage.files[0])
 	
 	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
-
+  let userId = user._id
+  //console.log(user._id) 
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
     year: event.target.year.value,
     image: imgResponse.data.image,
     price: event.target.price.value,
-    days: event.target.days.value
+    days: event.target.days.value,
+    user: userId
   }
   
   let response = await axios.post(`${API_URL}/sellform`, newArt)
@@ -132,12 +132,12 @@ const handleLogout = async () => {
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit} user={user} />}   />
       <Route path="/" element={<ArtListing art={art}/>} />
-      <Route path="/auctiondetail/:artId" element={<ArtDetail />} />
-      <Route path='/live' element={<LiveAuction />} />
+      <Route path="/auctiondetail/:artId" element={<ArtDetail user={user} />}/>
       <Route path='*' element={<PageNotFound />}/>
-      <Route path='/user' element={<Profile />} user={user} />
+      <Route path='/user' element={<Profile user={user}/>}  />
       <Route path='/furureauctions' element={<CalendarOutside />}  />
       <Route path='/closedauctions' element={<ClosedAuctions />} />
+      <Route path='/user/added/:user' element={<ArtAdded  user={user}/>}  />
     </Routes>
     <Footer />
   </div>

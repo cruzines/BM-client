@@ -7,6 +7,15 @@
     color:black
 }
 
+.textInput {
+    font-weight: bolder;
+    color: white
+}
 .addcolor {
     background-color: white;
+    
+    bottom:0;
+    width:100%;
+    
+   
 }
