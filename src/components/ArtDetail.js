@@ -62,7 +62,7 @@ function ArtDetail(props) {
   */}
    
     
-    const handleSubmitG = async (event) => {
+    const handleSubmitG = async (event, props) => {
       event.preventDefault()
       console.log("bid submited")
     
@@ -107,7 +107,7 @@ function ArtDetail(props) {
   {/* <Link to='/bidpage'><button>Make an offer</button></Link>*/}
  {  
 showForm ? 
-<BidDrawer btnSubmitG={handleSubmitG} />
+<BidDrawer btnSubmitG={handleSubmitG} user={props.user}/>
  : (null)
 } 
 </div>

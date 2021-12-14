@@ -80,7 +80,7 @@ function App() {
     getData()
 }, [])
 
-
+console.log(user)
 const handleSubmit = async (event) => {
   event.preventDefault()
   //console.log(event.target.price.value)
@@ -91,7 +91,7 @@ const handleSubmit = async (event) => {
 	
 	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
   let userId = user._id
-  console.log(user._id) 
+  console.log(userId) 
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
@@ -196,10 +196,10 @@ function monthCellRender(value) {
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/sellform" element={<AddArt btnSubmit={handleSubmit} user={user} />}   />
       <Route path="/" element={<ArtListing art={art}/>} />
-      <Route path="/auctiondetail/:artId" element={<ArtDetail />} user={user} />
+      <Route path="/auctiondetail/:artId" element={<ArtDetail user={user} />}/>
       <Route path='/live' element={<LiveAuction />} />
       <Route path='*' element={<PageNotFound />}/>
-      <Route path='/user' element={<Profile />} user={user} />
+      <Route path='/user' element={<Profile user={user} />}  />
       <Route path='/furureauctions' element={<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />}  />
     </Routes>
     <Footer />
