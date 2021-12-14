@@ -95,12 +95,6 @@ function Contact() {
     <h3> North Amercia </h3>
     +456 789 101 <br/>
     +456 112 134 <br/>
-
-
-
-    
-    
-
     </p>
             
         </div>

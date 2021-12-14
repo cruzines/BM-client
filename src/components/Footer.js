@@ -192,10 +192,10 @@ const Footer = React.memo(function ArcAppFooter() {
                       <Link to='/contact'><h5>Contact</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                        <h5>Who are we</h5>
+                      <Link to='/theteam'><h5>Who are we</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                      <Link to='/team'><h5>Press</h5></Link>
+                      <Link to='/comingSoon'><h5>Press</h5></Link>
                       </CategoryItem>
                     </CategoryProvider>
                   </Grid>
