@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
-import CalendarOutside from "./Calendar";
+import CalendarOutside from "./components/Calendar";
 
 import ClosedAuctions from "./components/ClosedAuctions";
 import './App.css';

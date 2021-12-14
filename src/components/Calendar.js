@@ -1,6 +1,6 @@
 import React from 'react'
 import { Calendar, Badge, Typography } from 'antd';
-import './Calendar.css'
+import '../Calendar.css'
 
 
 function getListData(value) {
