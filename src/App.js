@@ -16,9 +16,10 @@ import Footer from './components/Footer';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
-import { Calendar, Badge } from 'antd';
-import './App.css';
+import CalendarOutside from "./Calendar";
 
+import ClosedAuctions from "./components/ClosedAuctions";
+import './App.css';
 
 //SIGNUP
 function App() {
@@ -119,71 +120,6 @@ const handleLogout = async () => {
 //console.log(myError)
 
 
-function getListData(value) {
-  let listData;
-  switch (value.date()) {
-    case 8:
-      listData = [
-        { type: 'warning', content: 'This is warning event.' },
-        { type: 'success', content: 'This is usual event.' },
-      ];
-      break;
-    case 10:
-      listData = [
-        { type: 'warning', content: 'This is warning event.' },
-        { type: 'success', content: 'This is usual event.' },
-        { type: 'error', content: 'This is error event.' },
-      ];
-      break;
-    case 22:
-      listData = [
-        { type: 'warning', content: 'Auction day' },
-        { type: 'success', content: 'This is very long usual event。。....' },
-        { type: 'error', content: 'This is error event 1.' },
-        { type: 'error', content: 'This is error event 2.' },
-        { type: 'error', content: 'This is error event 3.' },
-        { type: 'error', content: 'This is error event 4.' },
-      ];
-      break;
-    default:
-  }
-  return listData || [];
-}
-
-function dateCellRender(value) {
-  const listData = getListData(value);
-  return (
-    <ul className="events">
-      {listData.map(item => (
-        <li key={item.content}>
-          <Badge status={item.type} text={item.content} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function getMonthData(value) {
-  if (value.month() === 8) {
-    return 1394;
-  }
-}
-
-function monthCellRender(value) {
-  const num = getMonthData(value);
-  return num ? (
-    <div className="notes-month">
-      <section>{num}</section>
-      <span>Backlog number</span>
-    </div>
-  ) : null;
-}
-
-
-
-
-
-
 
   return (
     <div>
@@ -200,7 +136,8 @@ function monthCellRender(value) {
       <Route path='/live' element={<LiveAuction />} />
       <Route path='*' element={<PageNotFound />}/>
       <Route path='/user' element={<Profile />} user={user} />
-      <Route path='/furureauctions' element={<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />}  />
+      <Route path='/furureauctions' element={<CalendarOutside />}  />
+      <Route path='/closedauctions' element={<ClosedAuctions />} />
     </Routes>
     <Footer />
   </div>

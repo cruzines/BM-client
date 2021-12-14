@@ -32,6 +32,7 @@ function BidDrawer(props) {
     
     return (
       <>
+      
         <Button type="primary" onClick={showDrawer}>
          Make an offer
         </Button>

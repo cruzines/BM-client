@@ -25,7 +25,7 @@ function ButtonAppBar(props) {
           >
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-           <img alt="logo" src="/logo2.jpg"/>
+           <Link to="/" ><img alt="logo" src="/logo2.jpg"/></Link>
           </Typography>
           <Button color="inherit">Auctions</Button>
           {
