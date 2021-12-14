@@ -13,11 +13,14 @@ import AddArt from "./components/AddArt";
 import ButtonAppBar from './components/ButtonAppBar'
 import PageNotFound from './components/404notFound'
 import Footer from './components/Footer';
+import CarouselFront from './components/Carousel';
 import LiveAuction from './components/LiveAuction';
 import Profile from './components/Profile';
 import { useNavigate } from "react-router";
 import { Calendar, Badge } from 'antd';
 import './App.css';
+import ComingSoon from "./components/ComingSoon";
+
 
 
 //SIGNUP
@@ -202,6 +205,8 @@ function monthCellRender(value) {
       <Route path='*' element={<PageNotFound />}/>
       <Route path='/user' element={<Profile user={user} />}  />
       <Route path='/furureauctions' element={<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />}  />
+      <Route path='/comingsoon' element={<ComingSoon />} />
+
     </Routes>
     <Footer />
   </div>

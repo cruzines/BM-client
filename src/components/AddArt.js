@@ -6,8 +6,23 @@ import Button from "@mui/material/Button";
 import imageDowload from "../images/customized-upload-icon.png";
 import CarouselFront from "./Carousel";
 import "../CarousselF.css";
+import axios from 'axios'
+import React, {useState,useEffect} from 'react'
+import LottieControl from './LottieControl'
+import '../App.css'
 
 function AddArt(props) {
+
+  //This is for lottie
+  const [someJson, setJson] = useState(null)
+    useEffect(() =>{
+        const getData = async () =>{
+          let res = await axios.get('https://assets6.lottiefiles.com/private_files/lf30_ELmjRz.json')
+            setJson(res.data)
+       }
+        getData()
+   }, [])
+
   const { btnSubmit } = props;
   //console.log(props.user);
   return (
@@ -97,11 +112,15 @@ function AddArt(props) {
           </div>
         </>
       ) : (
-        <>
-        
-          {/* LOTTIEEEEEEEEE <iframe src="https://embed.lottiefiles.com/animation/24950"></iframe>  */}
 
-          <p> Botar lottie here </p>
+        
+        
+        <>
+          <p className="loginLottie">   
+        <h1 style={{ color: '#04435D', textAlign: 'center'}}> Please log in to continue</h1>
+        <LottieControl animation={someJson} width={500} height={500} />
+
+    )</p>
         </>
       )}
     </div>

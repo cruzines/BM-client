@@ -31,6 +31,7 @@ import { usePoofSocialLinkStyles } from '@mui-treasury/styles/socialLink/poof';
 import { useReadyEmailSubscribeStyles } from '@mui-treasury/styles/emailSubscribe/ready';
 import { usePlainNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/plain';
 import '../Footer.css';
+import { Link } from "react-router-dom";
 
 const darkTheme = createMuiTheme({ palette: { type: 'dark' } });
 const useStyles = makeStyles(({ palette, typography }) => ({
@@ -162,7 +163,7 @@ const Footer = React.memo(function ArcAppFooter() {
                         <h5>Closed auctions</h5>
                       </CategoryItem>
                       <CategoryItem>
-                        <h5>Catalogues Subscription</h5>
+                      <Link to='/comingSoon'><h5>Catalogues Subscription</h5></Link>
                       </CategoryItem>
                     </CategoryProvider>
                   </Grid>
@@ -172,13 +173,13 @@ const Footer = React.memo(function ArcAppFooter() {
                         Services
                       </CategoryTitle>
                       <CategoryItem>
-                        <h5>Art expertise</h5>
+                      <Link to='/comingSoon'><h5>Art expertise</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                        <h5>Appraisals</h5>
+                      <Link to='/comingSoon'><h5>Appraisals</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                        <h5>Private sales</h5>
+                      <Link to='/comingSoon'><h5>Private sales</h5></Link>
                       </CategoryItem>
                     </CategoryProvider>
                   </Grid>
@@ -194,7 +195,7 @@ const Footer = React.memo(function ArcAppFooter() {
                         <h5>Who we are</h5>
                       </CategoryItem>
                       <CategoryItem>
-                        <h5>Press</h5>
+                      <Link to='/comingSoon'><h5>Press</h5></Link>
                       </CategoryItem>
                     </CategoryProvider>
                   </Grid>
