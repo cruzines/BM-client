@@ -80,7 +80,7 @@ function App() {
     getData()
 }, [])
 
-console.log(user)
+//console.log(user)
 const handleSubmit = async (event) => {
   event.preventDefault()
   //console.log(event.target.price.value)
@@ -91,7 +91,7 @@ const handleSubmit = async (event) => {
 	
 	let imgResponse = await axios.post(`${API_URL}/upload`, formData)
   let userId = user._id
-  console.log(userId) 
+  //console.log(user._id) 
   let newArt = {
     artist: event.target.artist.value,
     title: event.target.title.value,
@@ -99,7 +99,7 @@ const handleSubmit = async (event) => {
     image: imgResponse.data.image,
     price: event.target.price.value,
     days: event.target.days.value,
-    user: userId //CANT GET THIIIIIIIIIIIIIIIIIIIS 
+    user: userId
   }
   
   let response = await axios.post(`${API_URL}/sellform`, newArt)
