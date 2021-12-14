@@ -20,7 +20,13 @@ import { useNavigate } from "react-router";
 import CalendarOutside from "./components/Calendar";
 import ClosedAuctions from "./components/ClosedAuctions";
 import Chatbot from "./components/Chatbot";
+import ComingSoon from "./components/ComingSoon";
+import Contact from "./components/Contact";
+import Team from './components/Team';
+import Press from './components/Press';
 import './App.css';
+
+
 
 //SIGNUP
 function App() {
@@ -139,8 +145,12 @@ const handleLogout = async () => {
       <Route path='/live' element={<LiveAuction />} />
       <Route path='*' element={<PageNotFound />}/>
       <Route path='/user' element={<Profile user={user}/>} />
-      <Route path='/furureauctions' element={<CalendarOutside />}  />
+      <Route path='/futureauctions' element={<CalendarOutside />}  />
       <Route path='/closedauctions' element={<ClosedAuctions />} />
+      <Route path='/comingsoon' element={<ComingSoon />} />
+      <Route path='/contact' element={<Contact />} />
+      <Route path='/theteam' element={<Team />} />
+      <Route path='/press' element={<Press />} />
     </Routes>
     <Footer />
   </div>

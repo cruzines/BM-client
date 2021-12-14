@@ -1,0 +1,24 @@
+.lettering{
+    display: flex;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.links{
+    display: flex;
+    margin-left: 2rem;
+    font-size: 150%;
+	justify-content: center;
+	justify-content: space-around;
+}
+
+.card{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+    margin-left: 12rem;
+    margin-right: 12rem;
+
+
+}
