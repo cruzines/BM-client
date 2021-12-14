@@ -5,18 +5,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import '../contact.css'
+import { Link } from "react-router-dom";
+
 
 function Contact() {
     return (
         <div class='conactCards'>
 
-<Card sx={{ maxWidth: 420 }}>
+<Card sx={{ width: 420 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image="../currentAuction.jpg"
+          alt="Live auctions"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -28,19 +30,17 @@ function Contact() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Go to
-        </Button>
+      <Link to="/live" class="btn">Go to</Link>
       </CardActions>
     </Card>
 
-    <Card sx={{ maxWidth: 420 }}>
+    <Card sx={{ width: 420 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image="../David.jpg"
+          alt="Future Auctions"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -52,19 +52,17 @@ function Contact() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+      <Link to="/furureauctions" class="btn">Go to</Link>
       </CardActions>
     </Card>
 
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 420 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image="../team.jpg"
+          alt="The team"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -76,11 +74,34 @@ function Contact() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
+      <Link to="/theteam" class="btn">Go to</Link>
       </CardActions>
     </Card>
+
+    <p class = 'text'>
+    <h2> General Enquiries:</h2>
+    enquiries@bidmasters.com
+    <h2> Buy Now Enquiries:</h2>
+    buy@bidmasters.com <br/>
+    <h3> Europe </h3>
+    +123 426 789
+    <h3> North Amercia </h3>
+    +456 111 111 <br/>
+    <h2> Bidding Enquiries:</h2>
+    bids@bidmasters.com <br/>
+    <h3> Europe </h3>
+    +123 101 112 <br/>
+    +123 134 415 <br/>
+    <h3> North Amercia </h3>
+    +456 789 101 <br/>
+    +456 112 134 <br/>
+
+
+
+    
+    
+
+    </p>
             
         </div>
     )

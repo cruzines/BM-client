@@ -20,7 +20,8 @@ import { useNavigate } from "react-router";
 import { Calendar, Badge } from 'antd';
 import './App.css';
 import ComingSoon from "./components/ComingSoon";
-import Contact from "./components/Contact"
+import Contact from "./components/Contact";
+import Team from './components/Team'
 
 
 
@@ -207,6 +208,8 @@ function monthCellRender(value) {
       <Route path='/furureauctions' element={<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />}  />
       <Route path='/comingsoon' element={<ComingSoon />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/theteam' element={<Team />} />
+
 
 
     </Routes>

@@ -6,7 +6,28 @@
     align-items: baseline;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-left: 20rem;
 
+}
 
+.text{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+	align-items: flex-end;
+	align-content: space-between;
+    margin-top: -8.6rem;
+    margin-left: 20rem;
 
+}
+
+.btn{
+    border: 1px solid black;
+    color: #FFFFFF;
+    padding: 2px 22px;
+    border-radius: 15px;
+    font-size: 12px;
+    background-color: #658d9e;
+    display: flex;
+    justify-content: center;
 }
