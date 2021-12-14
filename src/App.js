@@ -19,6 +19,7 @@ import Profile from './components/Profile';
 import { useNavigate } from "react-router";
 import { Calendar, Badge } from 'antd';
 import './App.css';
+import ComingSoon from "./components/ComingSoon";
 
 
 
@@ -203,6 +204,8 @@ function monthCellRender(value) {
       <Route path='*' element={<PageNotFound />}/>
       <Route path='/user' element={<Profile user={user} />}  />
       <Route path='/furureauctions' element={<Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />}  />
+      <Route path='/comingsoon' element={<ComingSoon />} />
+
     </Routes>
     <Footer />
   </div>
