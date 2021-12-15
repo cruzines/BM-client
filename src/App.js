@@ -26,6 +26,7 @@ import ArtAdded from "./components/ArtAdded";
 import CheckoutForm from './components/CheckoutForm';
 import ArtBidded from "./components/ArtBidded";
 import './App.css';
+import EditArt from "./components/EditArt";
 
 
 
@@ -110,6 +111,9 @@ function App() {
     getData()
 }, [])
 
+
+
+
 //console.log(user)
 const handleSubmit = async (event) => {
   event.preventDefault()
@@ -137,6 +141,60 @@ const handleSubmit = async (event) => {
   navigate('/')
 }
 
+
+const handleEdit = async (event, id) => {
+  event.preventDefault()
+
+  //console.log(event.target.myImage.files[0])
+	let formData1 = new FormData()
+	formData1.append('imageUrl', event.target.myImage.files[0])
+	
+	let imgResponse = await axios.post(`${API_URL}/upload`, formData1)
+console.log(imgResponse)
+  let editedArt = {
+    artist: event.target.artist.value,
+    title: event.target.title.value,
+    year: event.target.year.value,
+    image: imgResponse.data.image,
+    price: event.target.price.value,
+    days: event.target.days.value
+  }
+ //console.log(editedArt, id)
+  let response = await axios.patch(`${API_URL}/user/added/edit/${id}`, editedArt,{withCredentials: true})
+ 
+  console.log(response.data)
+
+  let updatedArt = art.map((elem) => {
+      if (elem._id == id) {
+          elem.artist = response.data.artist
+          elem.title = response.data.title
+          elem.year = response.data.year
+          elem.image = response.data.image
+          elem.price = response.data.price
+          elem.days = response.data.days
+      }
+      return elem
+  })
+
+  setArt(updatedArt)
+  navigate('/user')
+}
+
+const handleDelete = async (id) => {
+  console.log(id)
+  await axios.delete(`${API_URL}/art/${id}`)
+
+  
+  let filteredArt = art.filter((elem) => {
+    return elem._id !== id
+  })
+
+  setArt(filteredArt)
+  navigate('/user')
+}
+
+
+
 //LOGOUT
 const handleLogout = async () => {
   await axios.post(`${API_URL}/logout`, {}, {withCredentials: true})
@@ -155,7 +213,7 @@ const handleLogout = async () => {
     <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
     <SignUpDialog open={open} handleClose={handleClose} />
     <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn} myError={myError}/>
-    <Chatbot />
+    <Chatbot /> 
 
     <Routes>
       <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
@@ -172,9 +230,10 @@ const handleLogout = async () => {
       <Route path='/theteam' element={<Team />} />
       <Route path='/press' element={<Press />} />
       <Route path='/user' element={<Profile user={user}/>}  />
-      <Route path='/user/added/:user' element={<ArtAdded user={user} art={art}/>}  />
+      <Route path='/user/added/:user' element={<ArtAdded user={user} art={art} btnDelete={handleDelete}/>}  />
       <Route path='/user/bid' element={<ArtBidded user={user} art={art}/>}  />
       <Route path='/user/checkout' element={<CheckoutForm />} />
+      <Route path='/user/added/edit/:artId' element={<EditArt btnEdit={handleEdit} user={user} art={art}/>}  />
     </Routes>
     <Footer />
   </div>

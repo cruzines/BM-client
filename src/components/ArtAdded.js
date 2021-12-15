@@ -17,8 +17,10 @@ function ArtAdded(props) {
 
 //const userId = useParams()
 const userId = props.user._id
-
+const {btnDelete} = props
 const [userArt, setUserArt] = useState (props.art);
+
+
     
   const artFiltered = userArt.filter((elem) => {
       return elem.user === userId
@@ -41,7 +43,7 @@ const [userArt, setUserArt] = useState (props.art);
                    artFiltered.map((elem) => {
                         return (
                                 <div className="colX">
-                                <Link to={`/auctiondetail/${elem._id}`}>
+                                <Link to={`/user/added/edit/${elem._id}`}>
                                 <Card hoverable
                                 className='images'
                                 style={{ width: 240 }}
@@ -50,6 +52,7 @@ const [userArt, setUserArt] = useState (props.art);
                                <p>by : {elem.artist}</p>
                                 </Card>
                                 </Link>
+                                <button  class="button" type="submit" style={{ fontSize: "20px" }} onClick={() => { btnDelete(elem._id)  }  } >Delete</button>
                                 </div>
                         )
                     })

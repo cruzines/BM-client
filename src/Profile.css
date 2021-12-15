@@ -112,9 +112,15 @@
 }
 
 
-.center {
+.centerP {
     display: block;
     margin-left: auto;
     margin-right: auto;
+<<<<<<< HEAD
     width: 50%;
   }
+=======
+    width: 15%;
+    
+  }
+>>>>>>> ee1cf04d6374eab98fec57205ececf1df60fd113

@@ -17,9 +17,9 @@ const { Meta } = Card;
 
 function ArtBidded(props) {
 
-const userId = props.user._id
+/* const userId = props.user._id */
 
-console.log(props.user._id)
+//console.log(props.user._id)
 
 const [artBid, setArtBid] = useState([])
 
@@ -31,19 +31,41 @@ useEffect(() => {
     getData()
 }, [])
 
-console.log(artBid)
-const maxBid = Math.max(...artBid.map(bid => bid.value));
+//console.log(artBid)
 
+const bidArtIds = artBid.map ((elem) => {
+    return (elem.artId)
+})
+console.log(bidArtIds)
+
+const bids = artBid.map((elem) => {
+return (elem.bid)
+});
+
+const maxBid = Math.max(...bids)
 console.log(maxBid)
-  const bidFiltered = artBid.filter((elem) => {
-      return 'ola'
-  })
 
+let winner = ''
+for (let i=0; i<artBid.length; i++) {
+    if (artBid[i].bid == maxBid) {
+         winner=artBid[i].artId
+    }
+}
+//console.log(winner)
+
+let winArt = ''
+let arts = props.art
+for (let i = 0; i < arts.length; i ++) {
+    if (arts[i]._id === winner) {
+        winArt = arts[i]
+    }
+}
+console.log (winArt)
    
-  if(!bidFiltered) {
+  if(!winArt) {
     return <Box sx={{ display: 'flex' }}>
     <CircularProgress />
-    <p>Or maybe you didn't bid anything yet.</p>
+    <p>Loading... Be patient</p>
   </Box> }
 
 
@@ -52,23 +74,17 @@ console.log(maxBid)
                 <div className="seller">
             <CarouselFront />
                  <div className="containerU">     
-                {
-                   bidFiltered.map((elem) => {
-                        return (
                                 <div className="colX">
-                                <Link to={`/auctiondetail/${elem._id}`}>
+                                <Link to={`/auctiondetail/${winArt._id}`}>
                                 <Card hoverable
                                 className='images'
                                 style={{ width: 240 }}
-                                cover={<img alt="art" src={elem.image} height={200}/>}>
-                               <Meta title={elem.title}  />
-                               <p>by : {elem.artist}</p>
+                                cover={<img alt="art" src={winArt.image} height={200}/>}>
+                               <Meta title={winArt.title}  />
+                               <p>by : {winArt.artist}</p>
                                 </Card>
                                 </Link>
                                 </div>
-                        )
-                    })
-                }
     </div>
     </div>
     </div>
