@@ -29,12 +29,21 @@ function Profile(props) {
               <div class="theback text-center py-3 px-3">
                 <br />
                 <h1>My Art Wallet</h1>
+<<<<<<< HEAD
                 <div class='image'> <img  src='/money.png' alt='money' /></div>
                 <Link to={`/user/added/${props.user._id}`}>
                   <h2 className='myLink'>My Added Auctions</h2>{" "}
                 </Link>
                 <Link to={`/user/added/${props.user._id}`}>
                   <h2 className='myLink'>My Bidded Auctions</h2>{" "}
+=======
+                <img src='/money.png' alt='money' />
+                <Link to={`/user/added/${props.user._id}`}>
+                  <h2 className='myLink'>My Added Auctions</h2>{" "}
+                </Link>
+                <Link to={`/user/bid`}>
+                  <h2 className='myLink'>My Winner Bids</h2>{" "}
+>>>>>>> f7ecb1a203c9ddefd61c2ce7b57e69195444d89d
                 </Link>
               </div>
             </div>

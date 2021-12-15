@@ -1,11 +1,13 @@
 import {Link} from 'react-router-dom';
-import { useParams } from 'react-router'
 import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Card } from 'antd';
 import CarouselFront from './Carousel';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import { BsCart4 } from 'react-icons/bs';
+import {API_URL} from '../config';
+import axios from 'axios';
 import '../Profile.css'
 import '../Galery.css';
 import '../CarousselF.css';
@@ -13,24 +15,37 @@ import '../CarousselF.css';
 
 const { Meta } = Card;
 
-function ArtAdded(props) {
+function ArtBidded(props) {
 
-//const userId = useParams()
 const userId = props.user._id
 
-const [userArt, setUserArt] = useState (props.art);
-    
-  const artFiltered = userArt.filter((elem) => {
-      return elem.user === userId
+console.log(props.user._id)
+
+const [artBid, setArtBid] = useState([])
+
+useEffect(() => {
+    const getData = async () => {
+       let response = await axios.get(`${API_URL}/bids`)
+       setArtBid(response.data)
+    }
+    getData()
+}, [])
+
+console.log(artBid)
+const maxBid = Math.max(...artBid.map(bid => bid.value));
+
+console.log(maxBid)
+  const bidFiltered = artBid.filter((elem) => {
+      return 'ola'
   })
 
    
-  if(!artFiltered) {
+  if(!bidFiltered) {
     return <Box sx={{ display: 'flex' }}>
     <CircularProgress />
-    <p>Or maybe you didn't add anything yet.</p>
-  </Box>
-}
+    <p>Or maybe you didn't bid anything yet.</p>
+  </Box> }
+
 
         return (
             <div>
@@ -38,7 +53,7 @@ const [userArt, setUserArt] = useState (props.art);
             <CarouselFront />
                  <div className="containerU">     
                 {
-                   artFiltered.map((elem) => {
+                   bidFiltered.map((elem) => {
                         return (
                                 <div className="colX">
                                 <Link to={`/auctiondetail/${elem._id}`}>
@@ -61,4 +76,10 @@ const [userArt, setUserArt] = useState (props.art);
     }
     
 
-export default ArtAdded
+export default ArtBidded
+
+
+
+
+
+{/* <BsCart4><Link to='/user/checkout'></Link></BsCart4> */}
