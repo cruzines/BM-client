@@ -16,7 +16,7 @@ function ComingSoon() {
     }, [])
 
     return (
-        <div className="errorSize">
+        <div >
         <h1 style={{ color: '#04435D', textAlign: 'center', marginBottom: 12, marginTop: 10}}> COMING SOON<br />  This page is under construction. <br /> Please come back later.</h1>
         <LottieControl animation={someJson} width={300} height={300} />
             
