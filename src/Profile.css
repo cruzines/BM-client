@@ -102,9 +102,8 @@
 
 .image{
 	display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: -30.8rem;
-
+    margin: auto;
+    width: 32%;
+  
 
 }
