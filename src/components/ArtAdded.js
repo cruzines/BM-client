@@ -19,12 +19,7 @@ function ArtAdded(props) {
 const userId = props.user._id
     
 console.log(props.user._id)
-    const [userArt, setUserArt] = useState(null)
 
-
-//console.log(props.art)
-console.log(userId)
-    
 const [userArt, setUserArt] = useState (props.art);
     
   const artFiltered = userArt.filter((elem) => {
