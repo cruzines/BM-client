@@ -18,7 +18,7 @@ function PageNotFound() {
 
     return (
         <div className="errorSize">
-        <h1 style={{ color: '#04435D', textAlign: 'center', marginBottom: 12, marginTop: 10}}> ERROR 404: PAGE NOT FOUND<br />  God created the world in six days and he's now resting. <br /> Go home.</h1>
+        <h1 style={{ color: '#04435D', textAlign: 'center', margin: 'auto', position: 'absolute'}}> ERROR 404: PAGE NOT FOUND<br />  God created the world in six days and he's now resting. <br /> Go home.</h1>
         <LottieControl animation={someJson} width={500} height={500} />
 
         </div>
