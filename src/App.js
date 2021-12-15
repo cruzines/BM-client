@@ -24,6 +24,7 @@ import Team from './components/Team';
 import Press from './components/Press';
 import ArtAdded from "./components/ArtAdded";
 import './App.css';
+import EditArt from "./components/EditArt";
 
 
 
@@ -87,6 +88,9 @@ function App() {
     }
     getData()
 }, [])
+
+
+
 
 //console.log(user)
 const handleSubmit = async (event) => {
@@ -152,6 +156,10 @@ const handleLogout = async () => {
       <Route path='/press' element={<Press />} />
       <Route path='/user' element={<Profile user={user}/>}  />
       <Route path='/user/added/:user' element={<ArtAdded  user={user} art={art}/>}  />
+
+
+
+      <Route path='/user/added/edit/:art' element={<EditArt  user={user} />}  />
     </Routes>
     <Footer />
   </div>

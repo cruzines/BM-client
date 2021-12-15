@@ -27,6 +27,7 @@ function AddArt(props) {
   //console.log(props.user);
   return (
     <div>
+      
       {props.user ? (
         <>
           <CarouselFront />
@@ -85,7 +86,7 @@ function AddArt(props) {
                   />
                 </div>
                 <div className="upload-btn-wrapper">
-                  <button class="btn">
+                  <button class="btn1">
                     <img src={imageDowload} alt="upload" /> Upload Photo
                   </button>
 
@@ -127,85 +128,9 @@ function AddArt(props) {
   );
 }
 
-{
-  /*  
-<Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        '& > :not(style)': { m: 1 },
-      }}
-    >
-		<form onSubmit={btnSubmit}>
-		<div >
-	  <DropzoneAreaBase 
-	  class="imageBox"
-  acceptedFiles={['image/*']}
-  dropzoneText={"Photo here"}
-  
-  name="myImage"
-  type="file"
-  accept="image/png, image/jpg" 
-  onChange={(files) => console.log('Files:', files)}
-  onAlert={(message, variant) => console.log(`${variant}: ${message}`)}
-  fullWidth
-/>
-</div> 
-<br/>
-			<div class="textFields">
-      <TextField
-        helperText="Please enter the author"
-        id="demo-helper-text-misaligned"
-		name="artist"
-		type="text"
-        label="Author"
-		fullWidth
-      />
-</div>
-<div class="textFields">
-<TextField
-        helperText="Please enter the title of the piece"
-        id="demo-helper-text-misaligned"
-		name="title"
-		type="text"
-        label="Title"
-		fullWidth
-      />
-</div>
-<div class="textFields">
-<TextField
-        helperText="Please enter the year of piece"
-        id="demo-helper-text-misaligned"
-		name="year"
-		type="text"
-        label="Year"
-		fullWidth
-      />
-   </div>
-   
-<br/>
-<div class="textFields" >
-<TextField
-        helperText="Enter the base value"
-        id="demo-helper-text-misaligned"
-		type="text"
-		name="price"
-        label="Value"
-		fullWidth
-      />
-</div>
-<div>
-<Button class="button" type="submit"  variant="outlined" size="large">
-          Submit
-        </Button>
-		</div>
-</form>
 
 
-    </Box>
 
 
-    */
-}
 
 export default AddArt;

@@ -21,3 +21,13 @@
 h1 {
 	text-align: center;
 }
+.containerU{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+    margin:7vw 5vw 7vw 5vw;
+
+}

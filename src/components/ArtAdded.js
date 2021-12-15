@@ -21,6 +21,8 @@ const userId = props.user._id
 console.log(props.user._id)
 
 const [userArt, setUserArt] = useState (props.art);
+
+
     
   const artFiltered = userArt.filter((elem) => {
       return elem.user === userId
@@ -43,7 +45,7 @@ const [userArt, setUserArt] = useState (props.art);
                    artFiltered.map((elem) => {
                         return (
                                 <div className="colX">
-                                <Link to={`/auctiondetail/${elem._id}`}>
+                                <Link to={`/user/added/edit/${elem._id}`}>
                                 <Card hoverable
                                 className='images'
                                 style={{ width: 240 }}

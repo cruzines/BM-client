@@ -14,8 +14,7 @@
 
 .textFields {
   max-width: 100%;
-  width: 250px;
-  height: 35px;
+  height: 45px;
   display: block;
   align-items: center;
   margin: 20px auto;
@@ -29,12 +28,11 @@
 }
 
 .imageBox {
-   width: 250px; 
+   width: 100; 
    
 }
 .button {
     height: 55px; 
-    width: 248px;
     border-radius: 15px;
     background-color: #04435d;
     color: white;
@@ -54,7 +52,7 @@
     display: inline-block;
     }
 
-    .btn {
+    .btn1 {
         border: 1px solid black;
             color: #FFFFFF;
             padding: 10px 49px;
@@ -69,4 +67,18 @@
           left: 0;
           top: 0;
           opacity: 0;
+        }
+
+        .extDiv {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        
+            margin: 20px auto 50px auto;
+            width: 60%;
+            background-color: white;
+            padding: 1px; 
         }
