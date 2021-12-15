@@ -6,7 +6,6 @@ import "../Profile.css";
 import { Link } from "react-router-dom";
 
 function Profile(props) {
-  console.log(props.user._id);
   return (
     <div>
       <div className="center">
@@ -16,7 +15,7 @@ function Profile(props) {
               <div class="thefront text-center py-4">
                 <Avatar
                   className="center"
-                  style={{ backgroundColor: "#04435d" }}
+                  style={{ backgroundColor: "#04435D" }}
                   icon={<UserOutlined />}
                   size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
                 />
@@ -29,24 +28,21 @@ function Profile(props) {
               </div>
               <div class="theback text-center py-3 px-3">
                 <br />
-                <h4 class="about text-justify">
-                  Follow the link and see the art works that you added or
-                  bougth.
-                </h4>
-
-                <Link to={`/user/added/${props.user}`}>
-                  <h1>Added</h1>{" "}
+                <h1>My Art Wallet</h1>
+                <div class='image'> <img  src='/money.png' alt='money' /></div>
+                <Link to={`/user/added/${props.user._id}`}>
+                  <h2 className='myLink'>My Added Auctions</h2>{" "}
                 </Link>
-                <button class="btn follow-button btn-block">Bought</button>
+                <Link to={`/user/added/${props.user._id}`}>
+                  <h2 className='myLink'>My Bidded Auctions</h2>{" "}
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       {/*  <Stripe /> */}
     </div>
   );
 }
-
 export default Profile;
