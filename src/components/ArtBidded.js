@@ -31,17 +31,22 @@ useEffect(() => {
     getData()
 }, [])
 
-//console.log(artBid)
-
+console.log(artBid)
+//MAP OVER ALL THE BIDS AND GIVE THE ARTID
 const bidArtIds = artBid.map ((elem) => {
     return (elem.artId)
 })
 console.log(bidArtIds)
-
+//MAP OVER ALL THE BIDS AND GIVE THE BID
 const bids = artBid.map((elem) => {
-return (elem.bid)
+return(elem.bid)
 });
+console.log(bids)
 
+//MAX BEED FOR EACH ART
+//I GIVE UP
+
+//SEE WICH BID IS THE HIGHEST
 const maxBid = Math.max(...bids)
 console.log(maxBid)
 
@@ -82,6 +87,7 @@ console.log (winArt)
                                 cover={<img alt="art" src={winArt.image} height={200}/>}>
                                <Meta title={winArt.title}  />
                                <p>by : {winArt.artist}</p>
+                               <p>SOLD FOR : {maxBid}</p>
                                 </Card>
                                 </Link>
                                 </div>

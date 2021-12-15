@@ -36,7 +36,7 @@ function Profile(props) {
                   <h2 className='myLink'>My Added Auctions</h2>{" "}
                 </Link>
                 <Link to={`/user/bid`}>
-                  <h2 className='myLink'>My Winner Bids</h2>{" "}
+                  <h2 className='myLink'>My Winning Bids</h2>{" "}
                 </Link>
               </div>
             </div>
