@@ -29,15 +29,14 @@ function Profile(props) {
               </div>
               <div class="theback text-center py-3 px-3">
                 <br />
-                <h4 class="about text-justify">
-                  Follow the link and see the art works that you added or
-                  bougth.
-                </h4>
-
-                <Link to={`/user/added/${props.user}`}>
-                  <h1>Added</h1>{" "}
+                <h1>My Art Wallet</h1>
+                <img src='/money.png' alt='money' />
+                <Link to={`/user/added/${props.user._id}`}>
+                  <h2 className='myLink'>My Added Auctions</h2>{" "}
                 </Link>
-                <button class="btn follow-button btn-block">Bought</button>
+                <Link to={`/user/bid`}>
+                  <h2 className='myLink'>My Winner Bids</h2>{" "}
+                </Link>
               </div>
             </div>
           </div>

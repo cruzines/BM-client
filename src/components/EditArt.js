@@ -1,9 +1,6 @@
 
 import "../AddArt.css";
-import { DropzoneArea, DropzoneAreaBase } from "material-ui-dropzone";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import imageDowload from "../images/customized-upload-icon.png";
 import CarouselFront from "./Carousel";
 import "../CarousselF.css";
@@ -17,16 +14,16 @@ import '../App.css'
 
 
 function EditArt(props) {
-    const artId = useParams()
-    console.log(artId)
-    const { btnEditSubmit } = props;
+    const {artId} = useParams()
+    //console.log(artId)
+    
     //console.log(props.user);
     const [editArt, setEditArt] = useState(null)
 
     useEffect(() => {
         const getData = async () => {
       
-           let response = await axios.get(`${API_URL}/user/added/edit/${artId}`, {withCredentials: true})
+           let response = await axios.get(`${API_URL}/user/added/${artId}`, {withCredentials: true})
            setEditArt(response.data)
         }
         getData()
@@ -35,95 +32,105 @@ function EditArt(props) {
     if(!editArt) {
         return <p>Not there yet</p>
     }
-    
-//console.log(editArt)
+    const { btnEdit} = props;
+
 
     return (
         <div>
-          <div className="extDiv">
-		<form onSubmit={(event) => {btnEditSubmit (event, editArt._id)} }>
-		
-<br/>
-			<div class="textFields">
-      <TextField
-        helperText={editArt.title}
-        id="demo-helper-text-misaligned"
-		name="artist"
-		type="text"
-        label="Author"
-		fullWidth
-      />
-</div>
-<div class="textFields">
-<TextField
-        helperText="Please enter the title of the piece"
-        id="demo-helper-text-misaligned"
-		name="title"
-		type="text"
-        label="Title"
-		fullWidth
-      />
-</div>
-<div class="textFields">
-<TextField
-        helperText="Please enter the year of piece"
-        id="demo-helper-text-misaligned"
-		name="year"
-		type="text"
-        label="Year"
-		fullWidth
-      />
-   </div>
-<div class="textFields" >
-<TextField
-        helperText="Enter the base value"
-        id="demo-helper-text-misaligned"
-		type="text"
-		name="price"
-        label="Value"
-		fullWidth
-      />
-</div>
-<div class="textFields">
-<TextField
-        helperText="Please enter the days you want it in auction"
-        id="demo-helper-text-misaligned"
-		name="days"
-		type="text"
-        label="Days"
-		fullWidth
-      />
-</div>
-<div >
-	  <DropzoneAreaBase 
-	  class="imageBox"
-  acceptedFiles={['image/*']}
-  dropzoneText={"Photo here"}
-  
-  name="myImage"
-  type="file"
-  accept="image/png, image/jpg" 
-  //onChange={(files) => console.log('Files:', files)}
-  onAlert={(message, variant) => console.log(`${variant}: ${message}`)}
-  fullWidth
-/>
-</div> 
 
-<div>
-<button
+           
+ <div class="form">
+ <h2>If you need to edit or edit your added art fill the form and select your option.</h2>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                "& > :not(style)": { m: 1 },
+              }}>
+
+              <form onSubmit={(event) => {  btnEdit(event, editArt._id)  }} >
+                <div>
+                    <h3>Artist:</h3>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="artist"
+                    type="text"
+                    placeholder={editArt.artist}
+                  />
+                </div>
+                <div>
+                    <h3>Title: </h3>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="title"
+                    type="text"
+                    placeholder={editArt.title}
+                  />
+                </div>
+                <div>
+                    <h3>Year:</h3>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="year"
+                    type="text"
+                    placeholder={editArt.year}
+                  />
+                </div>
+                <div>
+                    <h3>Minimum bid: </h3>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="price"
+                    type="text"
+                    placeholder={editArt.price}
+                  />
+                </div>
+                <div>
+                    <h3>Days of auction:</h3>
+                  <input
+                    id="inputID"
+                    class="textFields"
+                    name="days"
+                    type="text"
+                    placeholder={editArt.days}
+                  />
+                </div>
+                <div className="upload-btn-wrapper">
+                  <button class="btn1">
+                    <img src={imageDowload} alt="upload" /> Upload Photo
+                  </button>
+
+                  <input
+                    class="btn"
+                    name="myImage"
+                    type="file"
+                    accept="image/png, image/jpg"
+                    placeholder="Photo here"
+                  />
+                </div>
+
+                <div>
+                  <button
                     class="button"
                     type="submit"
                     style={{ fontSize: "20px" }}
                   >
                     Submit
                   </button>
-		</div>
-</form>
+                </div>
+              </form> 
+            </Box>
+          </div>
+           
 
-
-</div> 
         </div>
     )
 }
+
+
 
 export default EditArt
