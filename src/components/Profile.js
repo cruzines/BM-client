@@ -25,12 +25,13 @@ function Profile(props) {
                   Name: {props.user.firstName} {props.user.lastName}
                 </h3>
                 <h3 class="mt-2 mb-0">Email: {props.user.email}</h3>
+                <br/>
                 <div class="stats d-flex justify-content-between px-3 mt-3"></div>
               </div>
               <div class="theback text-center py-3 px-3">
                 <br />
                 <h1>My Art Wallet</h1>
-                <img src='/money.png' alt='money' />
+                <img src='/money.png' alt='money' className="centerP" />
                 <Link to={`/user/added/${props.user._id}`}>
                   <h2 className='myLink'>My Added Auctions</h2>{" "}
                 </Link>

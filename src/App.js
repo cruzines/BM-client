@@ -180,6 +180,20 @@ console.log(imgResponse)
   navigate('/user')
 }
 
+const handleDelete = async (id) => {
+  console.log(id)
+  await axios.delete(`${API_URL}/art/${id}`)
+
+  
+  let filteredArt = art.filter((elem) => {
+    return elem._id !== id
+  })
+
+  setArt(filteredArt)
+  navigate('/user')
+}
+
+
 
 //LOGOUT
 const handleLogout = async () => {
@@ -199,7 +213,7 @@ const handleLogout = async () => {
     <ButtonAppBar onLogout={handleLogout} user={user} openSI={handleOpenSI} handleCloseSI={handleCloseSI} open={handleOpen} handleClose={handleClose}/>
     <SignUpDialog open={open} handleClose={handleClose} />
     <SignInDialog openSI={openSI} handleCloseSI={handleCloseSI} onSignIn={handleSignIn} myError={myError}/>
-   {/* <Chatbot /> */}
+    <Chatbot /> 
 
     <Routes>
       <Route path="/signin" element={<SignIn myError={myError} onSignIn={handleSignIn} />}/>
@@ -216,7 +230,7 @@ const handleLogout = async () => {
       <Route path='/theteam' element={<Team />} />
       <Route path='/press' element={<Press />} />
       <Route path='/user' element={<Profile user={user}/>}  />
-      <Route path='/user/added/:user' element={<ArtAdded user={user} art={art}/>}  />
+      <Route path='/user/added/:user' element={<ArtAdded user={user} art={art} btnDelete={handleDelete}/>}  />
       <Route path='/user/bid' element={<ArtBidded user={user} art={art}/>}  />
       <Route path='/user/checkout' element={<CheckoutForm />} />
 

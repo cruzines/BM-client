@@ -33,14 +33,14 @@ function EditArt(props) {
         return <p>Not there yet</p>
     }
     const { btnEdit} = props;
-
+    
 
     return (
         <div>
 
            
  <div class="form">
- <h2>If you need to edit or edit your added art fill the form and select your option.</h2>
+ <h2>If you need to edit your added art fill the form and click the button.</h2>
             <Box
               sx={{
                 display: "flex",
@@ -123,6 +123,7 @@ function EditArt(props) {
                   </button>
                 </div>
               </form> 
+             
             </Box>
           </div>
            

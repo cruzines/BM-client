@@ -17,7 +17,7 @@ function ArtAdded(props) {
 
 //const userId = useParams()
 const userId = props.user._id
-
+const {btnDelete} = props
 const [userArt, setUserArt] = useState (props.art);
 
 
@@ -52,6 +52,7 @@ const [userArt, setUserArt] = useState (props.art);
                                <p>by : {elem.artist}</p>
                                 </Card>
                                 </Link>
+                                <button  class="button" type="submit" style={{ fontSize: "20px" }} onClick={() => { btnDelete(elem._id)  }  } >Delete</button>
                                 </div>
                         )
                     })

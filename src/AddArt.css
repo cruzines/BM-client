@@ -5,7 +5,7 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-
+    background-color: white;
     margin: 20px auto 50px auto;
     width: 60%;
     
@@ -84,5 +84,6 @@
         }
 
         .form {
-            background-color: white;
+           
+            height: 950px;
         }
