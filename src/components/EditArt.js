@@ -1,88 +1,102 @@
+
 import "../AddArt.css";
-import { DropzoneArea, DropzoneAreaBase } from "material-ui-dropzone";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import imageDowload from "../images/customized-upload-icon.png";
 import CarouselFront from "./Carousel";
 import "../CarousselF.css";
 import axios from 'axios'
 import React, {useState,useEffect} from 'react'
-import LottieControl from './LottieControl'
+import {useParams, Link} from 'react-router-dom'
+import {API_URL} from '../config'
 import '../App.css'
 
-function AddArt(props) {
 
-  //This is for lottie
-  const [someJson, setJson] = useState(null)
-    useEffect(() =>{
-        const getData = async () =>{
-          let res = await axios.get('https://assets3.lottiefiles.com/packages/lf20_jjgda9tx.json')
-            setJson(res.data)
-       }
-        getData()
-   }, [])
 
-  const { btnSubmit } = props;
-  //console.log(props.user);
-  return (
-    <div>
+
+function EditArt(props) {
+    const {artId} = useParams()
+    //console.log(artId)
+    
+    //console.log(props.user);
+    const [editArt, setEditArt] = useState(null)
+
+    useEffect(() => {
+        const getData = async () => {
       
-      {props.user ? (
-        <>
-          <CarouselFront />
-          <div class="form">
+           let response = await axios.get(`${API_URL}/user/added/${artId}`, {withCredentials: true})
+           setEditArt(response.data)
+        }
+        getData()
+    }, [])
+
+    if(!editArt) {
+        return <p>Not there yet</p>
+    }
+    const { btnEdit} = props;
+    
+
+    return (
+        <div>
+
+           
+ <div class="form">
+ <h2>If you need to edit your added art fill the form and click the button.</h2>
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
                 "& > :not(style)": { m: 1 },
-              }}
-            >
-              <form onSubmit={btnSubmit} user={props.user._id}>
+              }}>
+
+              <form onSubmit={(event) => {  btnEdit(event, editArt._id)  }} >
                 <div>
+                    <h3>Artist:</h3>
                   <input
                     id="inputID"
                     class="textFields"
                     name="artist"
                     type="text"
-                    placeholder=" Author"
+                    placeholder={editArt.artist}
                   />
                 </div>
                 <div>
+                    <h3>Title: </h3>
                   <input
                     id="inputID"
                     class="textFields"
                     name="title"
                     type="text"
-                    placeholder=" Title of artwork"
+                    placeholder={editArt.title}
                   />
                 </div>
                 <div>
+                    <h3>Year:</h3>
                   <input
                     id="inputID"
                     class="textFields"
                     name="year"
                     type="text"
-                    placeholder=" Dated from"
+                    placeholder={editArt.year}
                   />
                 </div>
                 <div>
+                    <h3>Minimum bid: </h3>
                   <input
                     id="inputID"
                     class="textFields"
                     name="price"
                     type="text"
-                    placeholder=" Price wanted"
+                    placeholder={editArt.price}
                   />
                 </div>
                 <div>
+                    <h3>Days of auction:</h3>
                   <input
                     id="inputID"
                     class="textFields"
                     name="days"
                     type="text"
-                    placeholder=" How many days of auction"
+                    placeholder={editArt.days}
                   />
                 </div>
                 <div className="upload-btn-wrapper">
@@ -108,29 +122,16 @@ function AddArt(props) {
                     Submit
                   </button>
                 </div>
-              </form>
+              </form> 
+             
             </Box>
           </div>
-        </>
-      ) : (
+           
 
-        
-        
-        <>
-          <p className="loginLottie">   
-        <h1 style={{ color: '#04435D', textAlign: 'center'}}> Please log in to continue</h1>
-        <LottieControl animation={someJson} width={500} height={500} />
-
-    )</p>
-        </>
-      )}
-    </div>
-  );
+        </div>
+    )
 }
 
 
 
-
-
-
-export default AddArt;
+export default EditArt

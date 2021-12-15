@@ -9,6 +9,7 @@ import { Card, Image, Space, Statistic, Button, Input, Carousel } from "antd";
 import "../ArtDetail.css";
 import BidDrawer from "./BidDrawer";
 import CarouselFront from "./Carousel";
+import { useNavigate } from "react-router";
 import "../CarousselF.css";
 
 const { Meta } = Card;
@@ -17,7 +18,7 @@ function ArtDetail(props) {
   //console.log(props)
   const { artId } = useParams();
   const [showForm, setShowForm] = useState(true);
-
+  const navigate = useNavigate()
   const { btnSubmitG } = props;
 
   const [bid, setBid] = useState([]);
@@ -51,13 +52,17 @@ function ArtDetail(props) {
     console.log("finished!");
     setShowForm(false);
   }
-
-  {
-    /*if (Date.now()  >=  Date.parse(artDetail.createdAt)) {
+{/*
+  if (Date.now()  >=  Date.parse(artDetail.createdAt)) {
       setShowForm(false)
-    }
-  */
   }
+*/}
+
+if(showForm) {
+  (Date.now()  >=  deadline) && setShowForm(false) 
+}
+
+  
 
   const handleSubmitG = async (event) => {
     event.preventDefault();
@@ -73,7 +78,9 @@ function ArtDetail(props) {
       newBid
     );
     setBid([response.data, ...bid]);
+    navigate('/')
     console.log(response.data);
+   
   };
 
   return (
