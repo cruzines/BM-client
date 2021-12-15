@@ -38,6 +38,9 @@ function Profile(props) {
                 <Link to={`/user/bid`}>
                   <h2 className='myLink'>My Winner Bids</h2>{" "}
                 </Link>
+                <Link to={`/user/edit/${props.user._id}`}>
+                  <h2 className='myLink'>Edit profile</h2>{" "}
+                </Link>
               </div>
             </div>
           </div>

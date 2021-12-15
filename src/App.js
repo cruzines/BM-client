@@ -27,6 +27,7 @@ import CheckoutForm from './components/CheckoutForm';
 import ArtBidded from "./components/ArtBidded";
 import './App.css';
 import EditArt from "./components/EditArt";
+import EditProfile from "./components/EditProfile";
 
 
 
@@ -233,7 +234,7 @@ const handleLogout = async () => {
       <Route path='/user/added/:user' element={<ArtAdded user={user} art={art} btnDelete={handleDelete}/>}  />
       <Route path='/user/bid' element={<ArtBidded user={user} art={art}/>}  />
       <Route path='/user/checkout' element={<CheckoutForm />} />
-
+      <Route path='/user/edit/:userId' element={<EditProfile btnEdit={handleEdit} user={user}/>}  />
 
       <Route path='/user/added/edit/:artId' element={<EditArt btnEdit={handleEdit} user={user} art={art}/>}  />
     </Routes>
