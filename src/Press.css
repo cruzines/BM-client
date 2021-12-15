@@ -1,6 +1,8 @@
 .lettering{
     display: flex;
+    justify-content: center;
     margin-left: 2rem;
+    margin-right: 2rem;
     margin-top: 2rem;
 }
 
@@ -10,6 +12,8 @@
     font-size: 150%;
 	justify-content: center;
 	justify-content: space-around;
+    flex-wrap: wrap;
+
 }
 
 .card{
@@ -22,3 +26,12 @@
 
 
 }
+
+/*
+.image{
+	display: flex;
+    margin: auto;
+    width: 32%;
+}
+
+*/

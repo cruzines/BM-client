@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 function Contact() {
     return (
+      <div class= 'contact'>
         <div class='conactCards'>
 
 <Card sx={{ width: 420 }}>
@@ -97,6 +98,7 @@ function Contact() {
     +456 112 134 <br/>
     </p>
             
+        </div>
         </div>
     )
 }
