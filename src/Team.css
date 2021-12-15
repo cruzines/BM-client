@@ -1,6 +1,8 @@
 .title{
     display: flex;
     justify-content: center;
+    margin: auto;
+
 }
 .ourface{
     display: flex;
@@ -9,7 +11,7 @@
     align-items: center;
     margin-top: 4rem;
     margin-bottom: 2rem;
-    margin-left: -0.5rem;
+
 }
 
 .link{
