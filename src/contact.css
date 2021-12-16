@@ -6,6 +6,7 @@
     align-items: stretch;
     justify-content:center;
     margin-top: 2vw;
+    margin-bottom: 2vw;
 
 }
 
@@ -18,7 +19,9 @@
     flex-basis: auto;
     align-self: auto;
     order: 0; 
-    margin-right: 10%;
+    margin-right: 2%;
+    margin-left: 2%;
+
 }
 
 /* 
