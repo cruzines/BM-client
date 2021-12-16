@@ -31,6 +31,10 @@ useEffect(() => {
 
 //console.log(bids)
 
+if (!bids.length || !artBid.length) {
+    return <p>Fetching bids.</p>
+}
+
 
 const bidArtIds = async () => {
     artBid.map ((elem) => {
@@ -52,56 +56,93 @@ for (let i = 0; i < artBid.length ; i++) {
     artIds.push(art)
 }
 
-//console.log("this is the artIds", artIds)
+//  console.log("this is the artIds", artIds)
 
 let highestBids = []
 for (let i = 0; i < artIds.length; i++) {
-    let highestBid = 0
+    let highestBid = 0; let bidObj = {}
     for (let j = 0; j < artIds[i].length; j++) {
+      
         if (artIds[i][j].bid > highestBid) {
             highestBid = artIds[i][j].bid
+            bidObj = artIds[i][j]
         }
         
     }
-    highestBids.push(highestBid)
+    highestBids.push(bidObj)
 } 
 
-let winners = []
-for (let i = 0; i < highestBids.length; i++) {
-    for (let j = 0; j < artIds[i].length; j++) {
-        console.log('highest bids:', highestBids[i], 'these are takas:', artIds[i][j])
-        if(artIds[i][j].bid == highestBids[i]){
-            winners.push(artIds[i][j])
+console.log(highestBids)
+// let winners = []
+// for (let i = 0; i < highestBids.length; i++) {
+//     for (let j = 0; j < artIds[i].length; j++) {
+//         console.log('highest bids:', highestBids[i], 'these are takas:', artIds[i][j])
+//         if(artIds[i][j].bid == highestBids[i]){
+//             winners.push(artIds[i][j])
+//         }
+//     }
+// }  
+// console.log(winners)
+// let showWin = []
+// for (let i = 0; i < winners.length; i++) {
+//    //console.log(winners[i])
+      
+//        if(winners[i].user == props.user._id){
+//             showWin.push(winners[i])
+//     }
+// }
+// console.log(showWin)
+ 
+// let showArt = []
+// for (let i = 0; i < showWin.length; i++) {
+//    //console.log(winners[i])
+  
+//        if(showWin[i].artId == props.art._id){
+//             showArt.push(showWin[i])
+            
+//     }
+// }
+
+    let hasUserWon = [];
+    for (let i = 0; i < highestBids.length; i++) {
+        if (highestBids[i].user == props.user._id) {
+            hasUserWon.push(highestBids[i])
         }
     }
-}
-console.log('these are the winners',winners)
 
+    if (!hasUserWon.length) {
+        return <p>No winning bid </p>
+    }
+    console.log(artBid, hasUserWon)
 
-const [myWin, SetMyWin] = useState(winners)
-
-console.log(myWin.user)
-console.log(props.user._id)
+    let artist = artBid.filter(e => e._id == hasUserWon[0].artId)[0]
+    console.log(artist)
 
         return (
             <div>
-    {/*             <div className="seller">
+                <div className="seller">
             <CarouselFront />
-                 <div className="containerU">     
+              {
+                  hasUserWon.map((u) => {
+                      return (
+                        <div className="containerU">     
                                 <div className="colX">
-                                <Link to={`/auctiondetail/${winArt._id}`}>
+                                <Link to={`/auctiondetail/${artist._id}`}>
                                 <Card hoverable
                                 className='images'
                                 style={{ width: 240 }}
-                                cover={<img alt="art" src={winArt.image} height={200}/>}>
-                               <Meta title={winArt.title}  />
-                               <p>by : {winArt.artist}</p>
-                               <p>SOLD FOR : {maxBid}</p>
+                                cover={<img alt="art" src={artist.image} height={200}/>}>
+                               <Meta title={artist.title}  />
+                               <p>by : {artist.artist}</p>
+                               <p>SOLD FOR : {u.bid}</p>
                                 </Card>
                                 </Link>
                                 </div>
     </div>
-    </div> */}
+                      )
+                  })
+              }
+    </div>
     </div>
         )
     }
