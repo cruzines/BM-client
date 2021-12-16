@@ -37,11 +37,6 @@ if (!bids.length || !artBid.length) {
 }
 
 
-const bidArtIds = async () => {
-    artBid.map ((elem) => {
-        return (elem.artId)
-})
-}
 //console.log(bidArtIds())
 
 let artIds = []

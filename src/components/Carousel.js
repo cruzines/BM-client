@@ -29,19 +29,19 @@ function CarouselFront() {
             <Carousel autoplay>
     <div className='imageDiv'>
         <img className='image' src={img1} style={contentStyle} alt='art'/>
-        <div className='text'><h1> Available soon</h1></div>
+        <div className='text'><h1> </h1></div>
     </div>
     <div className='imageDiv'>
     <img className='image' src={img5} style={contentStyle} alt='art'/>
-    <div className='text' ><h1>Available soon</h1></div>
+    <div className='text' ><h1></h1></div>
     </div>
     <div className='imageDiv'>
     <img className='image' src={img10} style={contentStyle} alt='art'/>
-    <div className='text'><h1>Available soon</h1></div>
+    <div className='text'><h1></h1></div>
     </div>
     <div className='imageDiv'>
     <img className='image' src={img7} style={contentStyle} alt='art'/>
-    <div className='text'><h1>Available soon</h1></div>
+    <div className='text'><h1></h1></div>
     </div>
   </Carousel>
         </div>
