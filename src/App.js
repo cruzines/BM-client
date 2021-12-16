@@ -23,12 +23,9 @@ import Contact from "./components/Contact";
 import Team from './components/Team';
 import Press from './components/Press';
 import ArtAdded from "./components/ArtAdded";
-import CheckoutForm from './components/CheckoutForm';
 import ArtBidded from "./components/ArtBidded";
-import './App.css';
 import EditArt from "./components/EditArt";
-
-
+import "./App.css";
 
 //SIGNUP
 function App() {

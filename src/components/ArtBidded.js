@@ -8,6 +8,7 @@ import {useState, useEffect} from 'react';
 import { BsCart4 } from 'react-icons/bs';
 import {API_URL} from '../config';
 import axios from 'axios';
+/* import StripeApp from './StripeApp' */
 import '../Profile.css'
 import '../Galery.css';
 import '../CarousselF.css';
@@ -73,35 +74,6 @@ for (let i = 0; i < artIds.length; i++) {
 } 
 
 console.log(highestBids)
-// let winners = []
-// for (let i = 0; i < highestBids.length; i++) {
-//     for (let j = 0; j < artIds[i].length; j++) {
-//         console.log('highest bids:', highestBids[i], 'these are takas:', artIds[i][j])
-//         if(artIds[i][j].bid == highestBids[i]){
-//             winners.push(artIds[i][j])
-//         }
-//     }
-// }  
-// console.log(winners)
-// let showWin = []
-// for (let i = 0; i < winners.length; i++) {
-//    //console.log(winners[i])
-      
-//        if(winners[i].user == props.user._id){
-//             showWin.push(winners[i])
-//     }
-// }
-// console.log(showWin)
- 
-// let showArt = []
-// for (let i = 0; i < showWin.length; i++) {
-//    //console.log(winners[i])
-  
-//        if(showWin[i].artId == props.art._id){
-//             showArt.push(showWin[i])
-            
-//     }
-// }
 
     let hasUserWon = [];
     for (let i = 0; i < highestBids.length; i++) {
@@ -122,6 +94,7 @@ console.log(highestBids)
             <div>
                 <div className="seller">
             <CarouselFront />
+           {/*  <StripeApp /> */}
               {
                   hasUserWon.map((u) => {
                       return (
