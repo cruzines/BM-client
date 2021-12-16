@@ -36,6 +36,7 @@ function Profile(props) {
                 <Link to={`/user/bid`}>
                   <h2 className='myLink'>My Winning Bids</h2>{" "}
                 </Link>
+                
               </div>
             </div>
           </div>

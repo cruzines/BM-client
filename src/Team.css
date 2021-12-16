@@ -1,17 +1,16 @@
 .title{
     display: flex;
     justify-content: center;
-    margin: auto;
-
+    margin: 5px;
 }
 .ourface{
     display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	justify-content: space-around;
     align-items: center;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    flex-direction: column;
 }
 
 .link{
@@ -19,4 +18,24 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 
+}
+
+.ironhackers {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+    margin:7vw 5vw 7vw 5vw;
+    
+}
+
+.ironhacker {
+    margin: 5px;
+    height:560px;
+}
+
+.presentation{
+margin: 15px;
 }

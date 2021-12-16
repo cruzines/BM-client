@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Drawer, Button, Select, Input } from 'antd';
-
+import '../ArtDetail.css'
 
 
 function BidDrawer(props) {
@@ -33,7 +33,7 @@ function BidDrawer(props) {
       {
         props.user ? (
           <>
-          <Button type="primary" onClick={showDrawer}>Make an offer</Button>
+          <Button className="bidbutton" type="primary" onClick={showDrawer}>Make an offer</Button>
           </>
         ) : ( null )
       }
@@ -45,7 +45,7 @@ function BidDrawer(props) {
   <form onSubmit={btnSubmitG}>
   <Input placeholder="Enter your bid" addonAfter={selectAfter}  name="bid"  type="number"/>
   
-  <button  type="submit"  >Submit</button>
+  <button className="bidbutton" type="submit"  >Submit</button>
     </form>
     </div>
         </Drawer>

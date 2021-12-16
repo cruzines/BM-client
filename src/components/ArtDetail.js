@@ -100,7 +100,7 @@ if(showForm) {
             <p>by : {artDetail.artist}</p>
             <p>Year: {artDetail.year}</p>
             <p>Starting bid: €{artDetail.price}</p>
-            <p>Last bid: </p>
+            
           </Card>
           <br />
 

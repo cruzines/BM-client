@@ -1,5 +1,4 @@
 
-import "../AddArt.css";
 import Box from "@mui/material/Box";
 import imageDowload from "../images/customized-upload-icon.png";
 import CarouselFront from "./Carousel";
@@ -8,8 +7,9 @@ import axios from 'axios'
 import React, {useState,useEffect} from 'react'
 import {useParams, Link} from 'react-router-dom'
 import {API_URL} from '../config'
+import "../AddArt.css";
 import '../App.css'
-
+import '../EditArt.css'
 
 
 

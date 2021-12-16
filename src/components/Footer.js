@@ -158,7 +158,7 @@ const Footer = React.memo(function ArcAppFooter() {
                         Auctions
                       </CategoryTitle>
                       <CategoryItem>
-                        <Link to ="/futureauctions"><h5>Next auctions calendar</h5></Link>
+                        <Link to ="/futureauctions"><h5>Auctions calendar</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
                         <Link to="/closedauctions" ><h5>Closed auctions</h5></Link>

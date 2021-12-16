@@ -28,6 +28,7 @@ import EditArt from "./components/EditArt";
 import PrivateAuction from "./components/PrivateAuction";
 import "./App.css";
 
+
 //SIGNUP
 function App() {
   const navigate = useNavigate();

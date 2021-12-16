@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 650px;
+  height: 750px;
   flex-wrap: nowrap;
   flex-direction: column;
 }
@@ -21,4 +21,28 @@
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
+}
+
+.bidbutton {
+  height: 55px; 
+    border-radius: 15px;
+    background-color: #04435d;
+    color: white;
+    margin:15px  auto;
+    width: 100%;
+    border-color: #658d9e;
+}
+
+.bidbutton:hover{
+  background-color: #658d9e;
+  border-color: #04435d;
+}
+
+.bis {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
 }
