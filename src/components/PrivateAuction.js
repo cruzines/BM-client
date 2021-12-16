@@ -45,7 +45,7 @@ function PrivateAuction() {
         </p>
 
         <div class= 'paintings'>
-        <Card sx={{ maxWidth: 250 }}>
+        <Card sx={{ maxWidth: 450 }}>
           <CardHeader
             title="Chill out, relax and have an open mind."
             subheader="July 25, 2021"
@@ -77,10 +77,10 @@ function PrivateAuction() {
               <Typography paragraph>
               Estimate : 120,000 - 180,000 USD <br />
               STARTING BID: 80,000 USD
-
               </Typography>
             </CardContent>
-          </Collapse>
+          </Collapse> 
+  
           <CardHeader
             title="Look deep into nature, and then you will understand everything better."
             subheader="May 29, 2021"

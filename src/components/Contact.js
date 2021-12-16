@@ -56,7 +56,7 @@ function Contact() {
       </CardActions>
     </Card>
 
-    <Card sx={{ width: 420 }}>
+    <Card sx={{ width: 375 }}>
       <CardActionArea>
         <CardMedia
           component="img"

@@ -28,8 +28,7 @@ import ArtBidded from "./components/ArtBidded";
 import './App.css';
 import EditArt from "./components/EditArt";
 import PrivateAuction from './components/PrivateAuction'
-
-
+import StripeApp from './components/StripeApp'
 
 //SIGNUP
 function App() {
@@ -236,6 +235,10 @@ const handleLogout = async () => {
       <Route path='/user/checkout' element={<CheckoutForm />} />
       <Route path='/user/added/edit/:artId' element={<EditArt btnEdit={handleEdit} user={user} art={art}/>}  />
       <Route path='/privateauction' element={<PrivateAuction />} />
+      <Route path='/pay' element={<StripeApp />} />
+
+  
+
 
     </Routes>
     <Footer />

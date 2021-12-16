@@ -8,7 +8,7 @@ Bid Masters is a platform used by Art Galleries to sell their art. There are con
 
 ### USER STORIES
 ### - Landing Page
-The first thing seen by the user. Moving images and information about the current auctions. 
+The first thing seen by the user. Moving images and information about the cugrrent auctions. 
 ### - Payment 
 The user can buy the artworks inputting their credit card number. 
 ### - Signup 
@@ -57,18 +57,78 @@ Adding a pleasant sound in the Landing page.
 
 ### CLIENT/FRONTEND
 ### Routes
+Route path=/signin
+Route path=/signup
+Route path=/sellform" 
+Route path=/
+Route path=/auctiondetail/:artId
+Route path=*
+Route path=/user
+Route path=/futureauctions
+Route path=/closedauctions
+Route path=/comingsoon
+Route path=/contact
+Route path=/theteam
+Route path=/press
+Route path=/user
+Route path=/user/added/:user
+Route path=/user/bid
+Route path='/user/checkout
+Route path=/user/added/edit/:artId
+Route path=/privateauction
+Route path=/pay
+
 ### Components
-### Services
+404notFound
+AddArt
+ArtBidded
+ArtDetail
+ArtListing
+BidDrawer
+ButtonAppBar
+Calendar
+Carousel
+Chatbot
+CheckoutForm
+ClosedAuction
+ComingSoon
+Contact
+EditArt
+Footer
+LottieCOntrol
+Press
+PrivateAuction
+Profile
+SignIn
+SignInDialog
+SignUp
+SignUpDialog
+Stripe
+Team
 
 
 ### SERVER/BACKEND
 ### Models
+Art
+Bids
+User
+
 ### API Endpoints / Backend Routes
+auth
+bidMasters
+file-upload
+index
+stripe
 
 
 ### LINKS
-### Wireframes
+<a href="https://whimsical.com/mobile-view-J5gdqV1f7wkniPMyEqm1JA">Whimsical</a>
 ### Kanban in Notion
+<a href="https://www.notion.so/ffc6edaa56a24272a0f4945d98f1f5bf?v=362f6b85b58043c3aff127dd42d08c23">Notion</a>
 ### Git
+<a href="https://github.com/cruzines/BM-client">Client side</a>
+<a href="https://github.com/cruzines/BM-server">Server side</a>
 ### Slides
+<a href="https://docs.google.com/presentation/d/1uFLaZnwqXLEqeTLtA0J6_2oLZGGKFlBSTEy8OUR6xNY/edit?usp=sharing">Google slides</a>
+
 
