@@ -21,18 +21,21 @@ const {btnDelete} = props
 const [userArt, setUserArt] = useState (props.art);
 
 
-    
+   console.log([userId], userArt)
   const artFiltered = userArt.filter((elem) => {
-      return elem.user === userId
+      let userNumbers = elem.user.toString()
+    return userNumbers === userId 
   })
-
+console.log(artFiltered)
    
-  if(!artFiltered) {
+  if(!artFiltered.length) {
     return <Box sx={{ display: 'flex' }}>
     <CircularProgress />
     <p>Or maybe you didn't add anything yet.</p>
   </Box>
 }
+//console.log(artFiltered , props.art)
+
 
         return (
             <div>
