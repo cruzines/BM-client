@@ -1,24 +1,35 @@
-.contact{
+.contactBox{
     display: flex;
-    flex-direction: column;
-	flex-wrap: wrap-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    justify-content:center;
+    margin-top: 2vw;
+
 }
 
 .conactCards{
-
+	flex-direction: column;
     justify-content: space-around;
-    align-items: baseline;
-    margin-bottom: 8vw;
-    padding: 5%;
-    padding-left: 10%;
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0; 
+    margin-right: 10%;
 }
 
+/* 
 .text{
+    display: flex;
+	flex-direction: column;
 	align-items: center;
 	align-content: space-between;
-    margin-top: -12vw;
-    margin-left: 20%;
-}
+    margin: auto;
+    flex-shrink: 0;
+}   */
 
 .btn{
     border: 1px solid black;
