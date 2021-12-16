@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Drawer, Button, Select, InputNumber, Input } from 'antd';
-import axios from 'axios';
-import {API_URL} from '../config';
-import {Link } from 'react-router-dom'
+import { Drawer, Button, Select, Input } from 'antd';
+
 
 
 function BidDrawer(props) {

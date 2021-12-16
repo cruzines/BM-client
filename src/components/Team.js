@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState,useEffect} from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import '../Team.css'
 import { Link } from "react-router-dom";
-
+import linkedin from '../images/linkedin.png'
+import github from '../images/github.png'
 
 function Team() {
     return (
@@ -36,8 +37,14 @@ function Team() {
         </Typography>
       </CardContent>
       <CardActions class='link'>
-      <a href="https://www.linkedin.com/in/ines-nobre-cruz/">Visit Inês' linkedin<br /></a>
-      <a href="https://github.com/cruzines">Visit Inês' github</a>
+     
+        <a href="https://www.linkedin.com/in/ines-nobre-cruz/"> 
+          <img src={linkedin} alt="linkedin" width='50' />
+          </ a > 
+          <a href="https://github.com/cruzines"> 
+          <img src={github} alt="github" width='50' />
+          </ a > 
+      
       </CardActions>
     </Card>
     </div>
@@ -58,8 +65,12 @@ function Team() {
         </Typography>
       </CardContent>
       <CardActions class='link'>
-      <a href="https://www.linkedin.com/in/ricardo-n-nunes/">Visit Ricardo's linkedin<br /></a>
-      <a href="https://github.com/RicardoNetaNunes">Visit Ricardo's github</a>
+      <a href="https://www.linkedin.com/in/ricardo-n-nunes/"> 
+          <img src={linkedin} alt="linkedin" width='50' />
+          </ a > 
+          <a href="https://github.com/RicardoNetaNunes"> 
+          <img src={github} alt="github" width='50' />
+          </ a > 
       </CardActions>
     </Card>
     </div>
@@ -80,8 +91,13 @@ function Team() {
         </Typography>
       </CardContent>
       <CardActions class='link'>
-      <a href="https://www.linkedin.com/in/mariafarrancolell/">Visit Maria's linkedin<br /></a>
-      <a href="https://github.com/mafacoll">Visit Maria's github</a>
+      <a href="https://www.linkedin.com/in/mariafarrancolell/"> 
+          <img src={linkedin} alt="linkedin" width='50' />
+          </ a > 
+          <a href="https://github.com/mafacoll"> 
+          <img src={github} alt="github" width='50' />
+          </ a > 
+      
       </CardActions>
     </Card>
     </div>

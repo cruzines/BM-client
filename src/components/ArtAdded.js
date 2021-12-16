@@ -38,7 +38,12 @@ const [userArt, setUserArt] = useState (props.art);
             <div>
                 <div className="seller">
             <CarouselFront />
-                 <div className="containerX">     
+            <div className='sellerArt'>
+            <div>
+                <h2> Here you can see all the art that you put to sell, edit the information, and even remove it from auction.  </h2>
+                </div> 
+                 <div className="containerX">  
+                 
                 {
                    artFiltered.map((elem) => {
                         return (
@@ -52,11 +57,12 @@ const [userArt, setUserArt] = useState (props.art);
                                <p>by : {elem.artist}</p>
                                 </Card>
                                 </Link>
-                                <button  class="button" type="submit" style={{ fontSize: "20px" }} onClick={() => { btnDelete(elem._id)  }  } >Delete</button>
+                                <button  class="button" type="submit" style={{ fontSize: "20px" }} onClick={() => { btnDelete(elem._id)  }  } >Remove</button>
                                 </div>
                         )
                     })
                 }
+    </div>
     </div>
     </div>
     </div>

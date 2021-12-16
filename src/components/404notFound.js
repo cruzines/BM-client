@@ -18,9 +18,12 @@ function PageNotFound() {
 
     return (
         <div className="errorSize">
-        <h1 style={{ color: '#04435D', textAlign: 'center', marginBottom: 12, marginTop: 10}}> ERROR 404: PAGE NOT FOUND<br />  God created the world in six days and he's now resting. <br /> Go home.</h1>
-        <LottieControl animation={someJson} width={500} height={500} />
-
+            <div>
+        <h1 > ERROR 404: PAGE NOT FOUND<br />  God created the world in six days and he's now resting. <br /> Go home.</h1>
+        </div>
+        <div>
+        <LottieControl classname="lotie" animation={someJson} width={400} height={400} />
+        </div>
         </div>
     )
 }

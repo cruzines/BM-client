@@ -12,6 +12,7 @@ import img6 from '../images/6.jpg'
 import img7 from '../images/7.jpg'
 import img8 from '../images/8.png'
 import img9 from '../images/9.jpg'
+import img10 from '../images/404.jpg'
 
 const contentStyle = {
     height: '260px',
@@ -35,7 +36,7 @@ function CarouselFront() {
     <div className='text' ><h1>Soon available</h1></div>
     </div>
     <div className='imageDiv'>
-    <img className='image' src={img9} style={contentStyle} alt='art'/>
+    <img className='image' src={img10} style={contentStyle} alt='art'/>
     <div className='text'><h1>Soon available</h1></div>
     </div>
     <div className='imageDiv'>

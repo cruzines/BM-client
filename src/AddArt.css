@@ -7,7 +7,7 @@
 	align-content: center;
     background-color: white;
     margin: 20px auto 50px auto;
-    width: 60%;
+    width: 40%;
     
     padding: 10px;
 }
@@ -28,7 +28,7 @@
 }
 
 .imageBox {
-   width: 100; 
+   width: 100%; 
    
 }
 .button {
@@ -85,5 +85,5 @@
 
         .form {
            
-            height: 950px;
+            height: 600px;
         }

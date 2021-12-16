@@ -1,4 +1,4 @@
-import "../AddArt.css";
+
 import { DropzoneArea, DropzoneAreaBase } from "material-ui-dropzone";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -9,7 +9,7 @@ import "../CarousselF.css";
 import axios from 'axios'
 import React, {useState,useEffect} from 'react'
 import LottieControl from './LottieControl'
-import '../App.css'
+import "../AddArt.css";
 
 function AddArt(props) {
 

@@ -6,7 +6,6 @@ import "../Profile.css";
 import { Link } from "react-router-dom";
 
 function Profile(props) {
-  console.log(props.user._id);
   return (
     <div>
       <div className="center">
@@ -16,7 +15,7 @@ function Profile(props) {
               <div class="thefront text-center py-4">
                 <Avatar
                   className="center"
-                  style={{ backgroundColor: "#04435d" }}
+                  style={{ backgroundColor: "#04435D" }}
                   icon={<UserOutlined />}
                   size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
                 />
@@ -36,7 +35,7 @@ function Profile(props) {
                   <h2 className='myLink'>My Added Auctions</h2>{" "}
                 </Link>
                 <Link to={`/user/bid`}>
-                  <h2 className='myLink'>My Winner Bids</h2>{" "}
+                  <h2 className='myLink'>My Winning Bids</h2>{" "}
                 </Link>
                 
               </div>
@@ -44,10 +43,8 @@ function Profile(props) {
           </div>
         </div>
       </div>
-
       {/*  <Stripe /> */}
     </div>
   );
 }
-
 export default Profile;
