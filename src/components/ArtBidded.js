@@ -12,71 +12,80 @@ import '../Profile.css'
 import '../Galery.css';
 import '../CarousselF.css';
 
-
+//NOT WORKING YET
 const { Meta } = Card;
 
 function ArtBidded(props) {
 
-/* const userId = props.user._id */
-
-//console.log(props.user._id)
-
-const [artBid, setArtBid] = useState([])
+const [bids, setBids] = useState ([]);
+const [artBid, setArtBid] = useState(props.art)
+console.log(artBid)
 
 useEffect(() => {
     const getData = async () => {
        let response = await axios.get(`${API_URL}/bids`)
-       setArtBid(response.data)
+       setBids(response.data)
     }
     getData()
 }, [])
 
-console.log(artBid)
-//MAP OVER ALL THE BIDS AND GIVE THE ARTID
-const bidArtIds = artBid.map ((elem) => {
-    return (elem.artId)
+//console.log(bids)
+
+
+const bidArtIds = async () => {
+    artBid.map ((elem) => {
+        return (elem.artId)
 })
-console.log(bidArtIds)
-//MAP OVER ALL THE BIDS AND GIVE THE BID
-const bids = artBid.map((elem) => {
-return(elem.bid)
-});
-console.log(bids)
+}
+//console.log(bidArtIds())
 
-//MAX BEED FOR EACH ART
-//I GIVE UP
+let artIds = []
 
-//SEE WICH BID IS THE HIGHEST
-const maxBid = Math.max(...bids)
-console.log(maxBid)
+for (let i = 0; i < artBid.length ; i++) {
+    let art = []
+    for (let j = 0 ; j < bids.length; j++) {
+        if (artBid[i]._id == bids[j].artId) {
+            art.push(bids[j])
+        }
+    }
+    console.log(art)
+    artIds.push(art)
+}
 
-let winner = ''
-for (let i=0; i<artBid.length; i++) {
-    if (artBid[i].bid == maxBid) {
-         winner=artBid[i].artId
+//console.log("this is the artIds", artIds)
+
+let highestBids = []
+for (let i = 0; i < artIds.length; i++) {
+    let highestBid = 0
+    for (let j = 0; j < artIds[i].length; j++) {
+        if (artIds[i][j].bid > highestBid) {
+            highestBid = artIds[i][j].bid
+        }
+        
+    }
+    highestBids.push(highestBid)
+} 
+
+let winners = []
+for (let i = 0; i < highestBids.length; i++) {
+    for (let j = 0; j < artIds[i].length; j++) {
+        console.log('highest bids:', highestBids[i], 'these are takas:', artIds[i][j])
+        if(artIds[i][j].bid == highestBids[i]){
+            winners.push(artIds[i][j])
+        }
     }
 }
-//console.log(winner)
+console.log('these are the winners',winners)
 
-let winArt = ''
-let arts = props.art
-for (let i = 0; i < arts.length; i ++) {
-    if (arts[i]._id === winner) {
-        winArt = arts[i]
-    }
-}
-console.log (winArt)
-   
-  if(!winArt) {
-    return <Box sx={{ display: 'flex' }}>
-    <CircularProgress />
-    <p>Loading... Be patient</p>
-  </Box> }
 
+const [myWin, SetMyWin] = useState(winners)
+
+console.log(myWin.user)
+console.log(props.user._id)
 
         return (
             <div>
-                <div className="seller">
+    {/*             <div className="seller">
             <CarouselFront />
                  <div className="containerU">     
                                 <div className="colX">
@@ -92,7 +101,7 @@ console.log (winArt)
                                 </Link>
                                 </div>
     </div>
-    </div>
+    </div> */}
     </div>
         )
     }
