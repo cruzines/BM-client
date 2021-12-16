@@ -233,7 +233,7 @@ const handleLogout = async () => {
       <Route path='/user' element={<Profile user={user}/>}  />
       <Route path='/user/added/:user' element={<ArtAdded user={user} art={art} btnDelete={handleDelete}/>}  />
       <Route path='/user/bid' element={<ArtBidded user={user} art={art}/>}  />
-      <Route path='/user/checkout' element={<CheckoutForm />} />
+     
       <Route path='/user/added/edit/:artId' element={<EditArt btnEdit={handleEdit} user={user} art={art}/>}  />
     </Routes>
     <Footer />

@@ -1,5 +1,4 @@
 import React from "react";
-/* import Stripe from './Stripe'; */
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "../Profile.css";
@@ -43,7 +42,7 @@ function Profile(props) {
           </div>
         </div>
       </div>
-      {/*  <Stripe /> */}
+      
     </div>
   );
 }
