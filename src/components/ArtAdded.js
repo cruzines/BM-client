@@ -38,7 +38,7 @@ const [userArt, setUserArt] = useState (props.art);
             <div>
                 <div className="seller">
             <CarouselFront />
-                 <div className="containerU">     
+                 <div className="containerX">     
                 {
                    artFiltered.map((elem) => {
                         return (

@@ -12,12 +12,15 @@ function Team() {
     return (
 
         <div class='ourface'>
+          <div>
         <p class= 'presentation'>
         <h1 class="title"> Meet the team behind this app </h1>
-        <h2>This app is the third and final project (so sad) of the <br /> Ironhack's web development bootcamp.  </h2>
+        <h2  >This app is the third and final project (so sad) of the <br /> Ironhack's web development bootcamp.  </h2>
         </p>
-
-        <Card sx={{ maxWidth: 345 }}>
+        </div>
+        <div className="ironhackers">
+        <div>
+        <Card className="ironhacker" sx={{ maxWidth: 345 }}>
       <CardMedia 
         component="img"
         height="360"
@@ -37,8 +40,9 @@ function Team() {
       <a href="https://github.com/cruzines">Visit Inês' github</a>
       </CardActions>
     </Card>
-
-    <Card sx={{ maxWidth: 345 }}>
+    </div>
+    <div>
+    <Card className="ironhacker" sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="360"
@@ -58,8 +62,9 @@ function Team() {
       <a href="https://github.com/RicardoNetaNunes">Visit Ricardo's github</a>
       </CardActions>
     </Card>
-
-    <Card sx={{ maxWidth: 345 }}>
+    </div>
+    <div>
+    <Card className="ironhacker" sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="360"
@@ -79,8 +84,8 @@ function Team() {
       <a href="https://github.com/mafacoll">Visit Maria's github</a>
       </CardActions>
     </Card>
-
-
+    </div>
+    </div>
         </div>
     )
 }
