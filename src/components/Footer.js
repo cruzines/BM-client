@@ -180,7 +180,7 @@ const Footer = React.memo(function ArcAppFooter() {
                       <Link to='/comingSoon'><h5>Appraisals</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                      <Link to='/comingSoon'><h5>Private sales</h5></Link>
+                      <Link to='/privateauction'><h5>Private Auction</h5></Link>
                       </CategoryItem>
                     </CategoryProvider>
                   </Grid>

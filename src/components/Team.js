@@ -14,7 +14,7 @@ function Team() {
         <div class='ourface'>
         <p class= 'presentation'>
         <h1 class="title"> Meet the team behind this app </h1>
-        <h2>This app is the third and final project (so sad) of the <br /> Ironhack's web development bootcamp.  </h2>
+        <h2>This app is the third and final project of the <br /> Ironhack's web development bootcamp.  </h2>
         </p>
 
         <Card sx={{ maxWidth: 345 }}>

@@ -10,9 +10,8 @@ import { Link } from "react-router-dom";
 
 function Contact() {
     return (
-      <div class= 'contact'>
-        <div class='conactCards'>
-
+    <div class='contactBox'>
+    <div class= 'conactCards'>
 <Card sx={{ width: 420 }}>
       <CardActionArea>
         <CardMedia
@@ -78,8 +77,9 @@ function Contact() {
       <Link to="/theteam" class="btn">Go to</Link>
       </CardActions>
     </Card>
+    </div>
 
-    <p class = 'text'>
+    <p>
     <h2> General Enquiries:</h2>
     enquiries@bidmasters.com
     <h2> Buy Now Enquiries:</h2>
@@ -98,7 +98,6 @@ function Contact() {
     +456 112 134 <br/>
     </p>
             
-        </div>
         </div>
     )
 }
