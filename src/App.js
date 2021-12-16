@@ -27,6 +27,7 @@ import CheckoutForm from './components/CheckoutForm';
 import ArtBidded from "./components/ArtBidded";
 import './App.css';
 import EditArt from "./components/EditArt";
+import PrivateAuction from './components/PrivateAuction'
 
 
 
@@ -234,6 +235,8 @@ const handleLogout = async () => {
       <Route path='/user/bid' element={<ArtBidded user={user} art={art}/>}  />
       <Route path='/user/checkout' element={<CheckoutForm />} />
       <Route path='/user/added/edit/:artId' element={<EditArt btnEdit={handleEdit} user={user} art={art}/>}  />
+      <Route path='/privateauction' element={<PrivateAuction />} />
+
     </Routes>
     <Footer />
   </div>
