@@ -20,7 +20,7 @@ function ArtBidded(props) {
 
 const [bids, setBids] = useState ([]);
 const [artBid, setArtBid] = useState(props.art)
-console.log(artBid)
+
 
 useEffect(() => {
     const getData = async () => {
@@ -80,16 +80,37 @@ console.log(highestBids)
     if (!hasUserWon.length) {
         return <p>No winning bid </p>
     }
-    console.log(artBid, hasUserWon)
+    console.log( hasUserWon)
 
     let artist = artBid.filter(e => e._id == hasUserWon[0].artId)[0]
     console.log(artist)
 
-        return (
+    let showWinningBid = false
+
+    Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+    
+    var date = new Date(artist.createdAt);
+    
+    if( date.addDays(artist.days) < new Date(hasUserWon[0].createdAt)) {
+        showWinningBid = true
+    }
+
+
+
+        return (     
+            
             <div>
                 <div className="seller">
             <CarouselFront />
            {/*  <StripeApp /> */}
+           {/* <a to='https://buy.stripe.com/test_7sI8zYdpg7rK74I9AA'><BsCart4/></a> */}
+
+
+
               {
                   hasUserWon.map((u) => {
                       return (
@@ -110,8 +131,11 @@ console.log(highestBids)
                       )
                   })
               }
+             
     </div>
     </div>
+  
+
         )
     }
     
@@ -122,4 +146,3 @@ export default ArtBidded
 
 
 
-{/* <BsCart4><Link to='/user/checkout'></Link></BsCart4> */}
