@@ -26,6 +26,7 @@ import ArtAdded from "./components/ArtAdded";
 import ArtBidded from "./components/ArtBidded";
 import EditArt from "./components/EditArt";
 import PrivateAuction from "./components/PrivateAuction";
+import Payment from "./components/Payment";
 import "./App.css";
 
 
@@ -249,6 +250,7 @@ function App() {
           element={<EditArt btnEdit={handleEdit} user={user} art={art} />}
         />
         <Route path="/privateauction" element={<PrivateAuction />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </div>

@@ -69,7 +69,7 @@ function Press() {
 
             <div className="errorSize">
         <h1 style={{ color: '#04435D', textAlign: 'center', marginBottom: -62}}> </h1>
-        <LottieControl animation={someJson} width={300} height={300} />
+        
             
         </div>
 

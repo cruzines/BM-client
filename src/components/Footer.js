@@ -238,7 +238,7 @@ const Footer = React.memo(function ArcAppFooter() {
                   > */}
                   <NavItem className={classes.legalLink} id="phrase">
                       Created with mui, bootstrap and ant by Inês, Maria and Ricardo © 2021 All rights
-                      unreserved, go see who we are
+                      reserved, go see who we are
                       </NavItem>
                  {/*  </Typography> */}
                 </Box>
