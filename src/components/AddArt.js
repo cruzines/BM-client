@@ -1,8 +1,4 @@
-
-import { DropzoneArea, DropzoneAreaBase } from "material-ui-dropzone";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import imageDowload from "../images/customized-upload-icon.png";
 import CarouselFront from "./Carousel";
 import "../CarousselF.css";
@@ -24,7 +20,6 @@ function AddArt(props) {
    }, [])
 
   const { btnSubmit } = props;
-  //console.log(props.user);
   return (
     <div>
       
@@ -112,9 +107,7 @@ function AddArt(props) {
             </Box>
           </div>
         </>
-      ) : (
-
-        
+      ) : ( 
         
         <>
           <p className="loginLottie">   
@@ -127,10 +120,5 @@ function AddArt(props) {
     </div>
   );
 }
-
-
-
-
-
 
 export default AddArt;

@@ -1,23 +1,17 @@
-
 import Box from "@mui/material/Box";
 import imageDowload from "../images/customized-upload-icon.png";
-import CarouselFront from "./Carousel";
 import "../CarousselF.css";
 import axios from 'axios'
 import React, {useState,useEffect} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import {API_URL} from '../config'
 import "../AddArt.css";
 import '../App.css'
 import '../EditArt.css'
 
-
-
 function EditArt(props) {
     const {artId} = useParams()
-    //console.log(artId)
-    
-    //console.log(props.user);
+  
     const [editArt, setEditArt] = useState(null)
 
     useEffect(() => {
@@ -27,7 +21,7 @@ function EditArt(props) {
            setEditArt(response.data)
         }
         getData()
-    }, [])
+    }, [artId])
 
     if(!editArt) {
         return <p>Not there yet</p>

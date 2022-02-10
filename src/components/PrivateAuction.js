@@ -1,50 +1,51 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import '../privateSales.css'
-
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import "../privateSales.css";
 
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-  })(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  }));
-
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
+    duration: theme.transitions.duration.shortest,
+  }),
+}));
 
 function PrivateAuction() {
+  const [expanded, setExpanded] = React.useState(false);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
-    const [expanded, setExpanded] = React.useState(false);
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
-  
-  
-    return (
-      <div class= 'privateBox'>
-        <p>
-            <h1> PRIVATE AUCTION:<br /> MANISH PODUVAL</h1>
-            <h2> Known for his impossibly long, but extremely philosophical titles, the artist is expected to return from a six month long hiatus in the following weeks. While we want to see what he'll produce next we're excited to present you some of his masterpieces.</h2>
-        </p>
+  return (
+    <div class="privateBox">
+      <p>
+        <h1>
+          {" "}
+          PRIVATE AUCTION:
+          <br /> MANISH PODUVAL
+        </h1>
+        <h2>
+          {" "}
+          Known for his impossibly long, but extremely philosophical titles, the
+          artist is expected to return from a six month long hiatus in the
+          following weeks. While we want to see what he'll produce next we're
+          excited to present you some of his masterpieces.
+        </h2>
+      </p>
 
-        <div class= 'paintings'>
+      <div class="paintings">
         <Card sx={{ maxWidth: 250 }}>
           <CardHeader
             title="Chill out, relax and have an open mind."
@@ -58,7 +59,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              Painting done in procreate on an Ipad. The colors on this piece are spectacular, like is the reflection  of the sun on the calm water. 
+              Painting done in procreate on an Ipad. The colors on this piece
+              are spectacular, like is the reflection of the sun on the calm
+              water.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -75,9 +78,8 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
-
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
@@ -93,7 +95,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. The sky is the main focus of the painting, where all the color is and blends multiple tones together.
+              Painting done in procreate on an Ipad. The sky is the main focus
+              of the painting, where all the color is and blends multiple tones
+              together.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -110,8 +114,8 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
@@ -127,7 +131,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. The details on the mountains are exquisite. We can appreciate the artist's mastery and talent on the gradient of the sunset.
+              Painting done in procreate on an Ipad. The details on the
+              mountains are exquisite. We can appreciate the artist's mastery
+              and talent on the gradient of the sunset.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -144,8 +150,8 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
@@ -161,7 +167,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. The photorealism of the painting transports us to the middle of the sea. Notable is the depth that the colors used to give to the water.
+              Painting done in procreate on an Ipad. The photorealism of the
+              painting transports us to the middle of the sea. Notable is the
+              depth that the colors used to give to the water.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -178,8 +186,8 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
@@ -195,7 +203,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad.  As the artist is often inspired by nature this painting is unique. The warm colors of the sunset delimit the figure of the monument very intensely.
+              Painting done in procreate on an Ipad. As the artist is often
+              inspired by nature this painting is unique. The warm colors of the
+              sunset delimit the figure of the monument very intensely.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -212,8 +222,8 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
@@ -229,7 +239,8 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. The contrast between the cold and warm tones is exquisite. One of the artist's favorites.
+              Painting done in procreate on an Ipad. The contrast between the
+              cold and warm tones is exquisite. One of the artist's favorites.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -246,8 +257,8 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
@@ -263,7 +274,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. The artist paints one of his usual subjects, the sky and palm trees, but the colors used for this piece make it very unique and refreshing.
+              Painting done in procreate on an Ipad. The artist paints one of
+              his usual subjects, the sky and palm trees, but the colors used
+              for this piece make it very unique and refreshing.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -280,15 +293,12 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
-          <CardHeader
-            title="Sunset I."
-            subheader="February 20, 2020"
-          />
+          <CardHeader title="Sunset I." subheader="February 20, 2020" />
           <CardMedia
             component="img"
             height="194"
@@ -297,7 +307,9 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. This is truly a showstopper piece as we can see a lot of detail in both the sky and the sea, two of the artist's favourite subjects.
+              Painting done in procreate on an Ipad. This is truly a showstopper
+              piece as we can see a lot of detail in both the sky and the sea,
+              two of the artist's favourite subjects.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -314,15 +326,12 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
-          <CardHeader
-            title="Sunset II."
-            subheader="January 20, 2021"
-          />
+          <CardHeader title="Sunset II." subheader="January 20, 2021" />
           <CardMedia
             component="img"
             height="194"
@@ -331,7 +340,8 @@ function PrivateAuction() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Painting done in procreate on an Ipad. The details of the clouds are remarkable, and the brushstrokes are impeccable.
+              Painting done in procreate on an Ipad. The details of the clouds
+              are remarkable, and the brushstrokes are impeccable.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -348,17 +358,15 @@ function PrivateAuction() {
             <CardContent>
               <Typography paragraph>Value:</Typography>
               <Typography paragraph>
-              Estimate : 120,000 - 180,000 USD <br />
-              STARTING BID: 80,000 USD
+                Estimate : 120,000 - 180,000 USD <br />
+                STARTING BID: 80,000 USD
               </Typography>
             </CardContent>
           </Collapse>
         </Card>
-        </div>
+      </div>
     </div>
-
-      );
-    
+  );
 }
 
-export default PrivateAuction
+export default PrivateAuction;

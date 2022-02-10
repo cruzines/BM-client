@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Spin } from 'antd';
 import { Card, Image } from 'antd';
 import CarouselFront from './Carousel';

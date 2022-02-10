@@ -158,7 +158,7 @@ function App() {
     console.log(response.data);
 
     let updatedArt = art.map((elem) => {
-      if (elem._id == id) {
+      if (elem._id === id) {
         elem.artist = response.data.artist;
         elem.title = response.data.title;
         elem.year = response.data.year;

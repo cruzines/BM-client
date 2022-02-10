@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { Drawer, Button, Select, Input } from 'antd';
 import '../ArtDetail.css'
-
-
 function BidDrawer(props) {
     const [visible, setVisible] = useState(false);
    console.log()
     const {btnSubmitG} = props
-
     const showDrawer = () => {
       setVisible(true);
     };
@@ -15,19 +12,6 @@ function BidDrawer(props) {
       setVisible(false);
     };
 
-    const { Option } = Select;
-    const selectAfter = (
-      <Select defaultValue="USD" style={{ width: 60 }}>
-        <Option value="USD">$</Option>
-        <Option value="EUR">€</Option>
-        <Option value="GBP">£</Option>
-        <Option value="CNY">¥</Option>
-      </Select>
-    );
-
-    
-    //console.log(props.user)
-    
     return (
       <>
       {
@@ -37,14 +21,11 @@ function BidDrawer(props) {
           </>
         ) : ( null )
       }
-       
         <Drawer title="Make your offer" placement="bottom" onClose={onClose} visible={visible}>
-        
-  <div className="bids"> 
+  <div className="bids">
   <br/>
   <form onSubmit={btnSubmitG}>
-  <Input placeholder="Enter your bid" addonAfter={selectAfter}  name="bid"  type="number"/>
-  
+  <Input placeholder="Enter your bid" addonAfter="€"  name="bid"  type="number"/>
   <button className="bidbutton" type="submit"  >Submit</button>
     </form>
     </div>
@@ -52,5 +33,4 @@ function BidDrawer(props) {
       </>
     );
 }
-
 export default BidDrawer

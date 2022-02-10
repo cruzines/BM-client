@@ -8,8 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import {
   makeStyles,
-  ThemeProvider,
-  createMuiTheme,
+  ThemeProvider
 } from '@material-ui/core/styles';
 import { ColumnToRow, Item } from '@mui-treasury/components/flex';
 import { NavMenu, NavItem } from '@mui-treasury/components/menu/navigation';
@@ -23,18 +22,11 @@ import {
   CategoryTitle,
   CategoryItem,
 } from '@mui-treasury/components/menu/category';
-import {
-  SocialProvider,
-  SocialLink,
-} from '@mui-treasury/components/socialLink';
 import { useMagCategoryMenuStyles } from '@mui-treasury/styles/categoryMenu/mag';
-import { usePoofSocialLinkStyles } from '@mui-treasury/styles/socialLink/poof';
 import { useReadyEmailSubscribeStyles } from '@mui-treasury/styles/emailSubscribe/ready';
 import { usePlainNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/plain';
 import '../Footer.css';
 
-
-const darkTheme = createMuiTheme({ palette: { type: 'dark' } });
 const useStyles = makeStyles(({ palette, typography }) => ({
   top: {
     backgroundSize: 'cover',
@@ -103,7 +95,7 @@ const Footer = React.memo(function ArcAppFooter() {
               alt={''}
             />
           </div>
-          <ThemeProvider theme={darkTheme}>
+          <ThemeProvider>
             <ColumnToRow
               at={'sm'}
               cssPosition={'relative'}
@@ -142,12 +134,9 @@ const Footer = React.memo(function ArcAppFooter() {
                   alt=""
                   borderRadius={12}
                 />
+               
                 <Typography className={classes.info}>
-                  Prinsengracht 437, 1016 HM Amsterdam, Netherlands
-                </Typography>
-
-                <Typography className={classes.info}>
-                    admin@bidmasters.fake
+                    example@bidmasters.com
                 </Typography>
               </Grid>
               <Grid item xs={12} md={8} lg={6}>
@@ -190,10 +179,10 @@ const Footer = React.memo(function ArcAppFooter() {
                         About
                       </CategoryTitle>
                       <CategoryItem>
-                      <Link to='/contact'><h5>Contact</h5></Link>
+                      <Link to='/contact'><h5>Contacts</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
-                      <Link to='/theteam'><h5>Who are we</h5></Link>
+                      <Link to='/theteam'><h5>About us</h5></Link>
                       </CategoryItem>
                       <CategoryItem>
                       <Link to='/press'><h5>Press</h5></Link>
@@ -238,7 +227,7 @@ const Footer = React.memo(function ArcAppFooter() {
                   > */}
                   <NavItem className={classes.legalLink} id="phrase">
                       Created with mui, bootstrap and ant by Inês, Maria and Ricardo © 2021 All rights
-                      reserved, go see who we are
+                      reserved
                       </NavItem>
                  {/*  </Typography> */}
                 </Box>

@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import * as React from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
 import { Card, Image } from "antd";
 import CarouselFront from "./Carousel";
 import { useState, useEffect } from "react";
@@ -23,16 +21,16 @@ function ArtBidded(props) {
     };
     getData();
   }, []);
-  //console.log(bids)
+
   if (!bids.length || !artBid.length) {
     return <p>Fetching bids.</p>;
   }
-  //console.log(bidArtIds())
+
   let artIds = [];
   for (let i = 0; i < artBid.length; i++) {
     let art = [];
     for (let j = 0; j < bids.length; j++) {
-      if (artBid[i]._id == bids[j].artId) {
+      if (artBid[i]._id === bids[j].artId) {
         art.push(bids[j]);
       }
     }
@@ -55,7 +53,7 @@ function ArtBidded(props) {
   console.log(highestBids);
   let hasUserWon = [];
   for (let i = 0; i < highestBids.length; i++) {
-    if (highestBids[i].user == props.user._id) {
+    if (highestBids[i].user === props.user._id) {
       hasUserWon.push(highestBids[i]);
     }
   }
@@ -72,7 +70,7 @@ function ArtBidded(props) {
       1000 * 60 * 60 * 24 * artBid[i].days +
       1000 * 30;
     for (let j = 0; j < hasUserWon.length; j++)
-      if (artBid[i]._id == hasUserWon[j].artId && Date.now() >= deadline) {
+      if (artBid[i]._id === hasUserWon[j].artId && Date.now() >= deadline) {
         artist.push(artBid[i]);
       }
   }
@@ -105,7 +103,7 @@ function ArtBidded(props) {
                   >
                     <Meta title={u.title} />
                     <p>by : {u.artist}</p>
-                    <p>SOLD FOR : {hasUserWon[index].bid}</p>
+                    <p>SOLD FOR : € {hasUserWon[index].bid}</p>
                     <Link to="/payment"><BsCart4/></Link>
                   </Card>
                 

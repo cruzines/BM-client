@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config";
 import * as React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import { Card, Image, Space, Statistic, Button, Input, Carousel } from "antd";
+import { Card, Image, Space, Statistic } from "antd";
 import "../ArtDetail.css";
 import BidDrawer from "./BidDrawer";
 import CarouselFront from "./Carousel";
@@ -15,10 +15,10 @@ import "../CarousselF.css";
 const { Meta } = Card;
 
 function ArtDetail(props) {
-  //console.log(props)
+
   const { artId } = useParams();
   const [showForm, setShowForm] = useState(true);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { btnSubmitG } = props;
 
   const [bid, setBid] = useState([]);
@@ -31,7 +31,7 @@ function ArtDetail(props) {
       setArtDetail(response.data);
     };
     getData();
-  }, []);
+  }, [artId]);
   if (!artDetail) {
     return (
       <Box sx={{ display: "flex" }}>
@@ -52,35 +52,33 @@ function ArtDetail(props) {
     console.log("finished!");
     setShowForm(false);
   }
-{/*
-  if (Date.now()  >=  Date.parse(artDetail.createdAt)) {
-      setShowForm(false)
+
+  if (showForm) {
+    Date.now() >= deadline && setShowForm(false);
   }
-*/}
-
-if(showForm) {
-  (Date.now()  >=  deadline) && setShowForm(false) 
-}
-
-  
 
   const handleSubmitG = async (event) => {
     event.preventDefault();
     console.log("bid submited");
-
-    let newBid = {
-      bid: event.target.bid.value,
-      userId: props.user._id,
-    };
-    console.log(newBid);
-    let response = await axios.post(
-      `${API_URL}/auctiondetail/${artId}`,
-      newBid
-    );
-    setBid([response.data, ...bid]);
-    navigate('/')
-    console.log(response.data);
-   
+    if (event.target.bid.value >= artDetail.price) {
+      let newBid = {
+        bid: event.target.bid.value,
+        userId: props.user._id,
+      };
+      console.log(newBid);
+      let response = await axios.post(
+        `${API_URL}/auctiondetail/${artId}`,
+        newBid
+      );
+      setBid([response.data, ...bid]);
+      navigate("/");
+      console.log(response.data);
+    } else {
+      function myFunction() {
+        alert("Your bid must be higher than the starting bid!");
+      }
+      return myFunction();
+    }
   };
 
   return (
@@ -99,8 +97,7 @@ if(showForm) {
             <br />
             <p>by : {artDetail.artist}</p>
             <p>Year: {artDetail.year}</p>
-            <p>Starting bid: €{artDetail.price}</p>
-            
+            <p>Starting bid: € {artDetail.price}</p>
           </Card>
           <br />
 
